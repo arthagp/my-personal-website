@@ -6,8 +6,8 @@ import vector2 from "../../public/Vector 2.png";
 
 const Hero = () => {
   return (
-    <div className="relative flex justify-center items-center flex-col my-10">
-      <div className="flex justify-center items-center flex-col">
+    <div className="relative flex justify-center items-center flex-col my-10 pb-[250px]">
+      <div className="relative flex justify-center items-center flex-col">
         <div className="relative flex justify-center items-center">
           <span className="absolute flex -top-5 -right-5">
             <Image src={vector1} alt="vector-1" width={25} height={25} />

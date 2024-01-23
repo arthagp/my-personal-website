@@ -3,14 +3,14 @@ import React from "react";
 const Navbar = () => {
   // di berikan kondisi ketika berada pada section home, atau user mengklik navbar home atau yang lainnya maka mx di hapus
   return (
-    <div className="flex justify-center items-center h-16 w-[1298px] rounded-[30px] bg-black my-7">
+    <div className="flex justify-center items-center h-16 w-[1298px] rounded-[30px] bg-gray-800 my-7">
       <nav className="flex justify-between items-center min-w-[1275px] text-white">
         <ul className="flex justify-center items-center gap-x-10 font-extralight">
           <li className="rounded-4xl bg-orange-400 py-3 px-6 font-semibold">
             Home
           </li>
           {/* <li>Home</li> */}
-          <li>Services</li>
+          <li>Project</li>
           <li>Experience</li>
         </ul>
         <div className="relative flex justify-center items-center h-12">
@@ -21,7 +21,7 @@ const Navbar = () => {
         <ul className="flex justify-center items-center gap-x-10 font-extralight mx-5">
           {/* <li className="rounded-4xl bg-orange-400 py-3 px-6 font-semibold">About</li> */}
           <li>About</li>
-          <li>Project</li>
+          <li>Certificate</li>
           <li>Contact</li>
         </ul>
       </nav>
