@@ -2,6 +2,8 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Project";
 import Experience from "@/components/Experience";
+import About from "@/components/About";
+import Certificates from "@/components/Certificates";
 
 export default function Home() {
   return (
@@ -10,6 +12,8 @@ export default function Home() {
       <Hero />
       <Services />
       <Experience />
+      <About />
+      <Certificates />
     </div>
   );
 }

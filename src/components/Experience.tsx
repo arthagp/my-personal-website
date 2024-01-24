@@ -4,7 +4,7 @@ const Experience = () => {
   return (
     <div className="flex flex-col justify-center items-center">
       <div className="my-16">
-        <h1 className="font-semibold text-3xl ">
+        <h1 className="font-semibold text-4xl ">
           My <span className="text-orange-400">Work Experiences</span>
         </h1>
       </div>

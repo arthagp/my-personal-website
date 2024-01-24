@@ -30,7 +30,64 @@
   box-shadow: -14px 10px rgb(31 41 55);
 }
 
-.bg-project{
-  background-image: url('../../public/property-1.png');
+.bg-project {
+  background-image: url("../../public/property-1.png");
   /* object-fit: cover; */
+}
+
+.btnSeeAll:hover {
+  background-color: rgb(31 41 55);
+  padding: 7px 24px;
+}
+
+.card {
+  position: relative;
+  background: linear-gradient(to right, #000, #000);
+  border-radius: 1.5rem;
+  width: 400px;
+  height: 290px;
+  transition: opacity 0.3s;
+}
+
+.card:hover {
+  opacity: 0.8;
+}
+
+.btnArrow {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border: 2px solid #ff9800;
+  border-radius: 50%;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ff9800;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.card:hover .btnArrow {
+  background-color: #ff9800;
+  color: #fff;
+  border: none;
+}
+
+.arrow-icon {
+  width: 20px;
+  height: 20px;
+  transition: color 0.3s;
+}
+
+.btnArrow:hover .arrow-icon {
+  color: #fff;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  margin-bottom: 1rem;
+  color: #fff;
 }
