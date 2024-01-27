@@ -1,9 +1,38 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
-  // di berikan kondisi ketika berada pada section home, atau user mengklik navbar home atau yang lainnya maka mx di hapus
+  //TODO : membuat scrollY menjadi hook useState, ini untuk menyimpan perubahan yang ada, jadi ketika handleScroll ke trigger maka action active
+  const [scrollY, setScrollY] = useState<number>(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    // memanggil fungsi handleScroll ketika event scroll
+    document.addEventListener("scroll", handleScroll);
+
+    // Membersihkan event listener saat komponen unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="flex justify-center items-center h-16 w-[1298px] rounded-[30px] bg-gray-800 my-7">
+    <motion.div
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        type: "spring",
+        stiffness: 150,
+        damping: 20,
+      }}
+      className={`${
+        scrollY > 0 ? `shadow-box` : ``
+      } navbar flex justify-center items-center h-16 w-[1298px] rounded-[30px] bg-neutral-800 my-7`}
+    >
       <nav className="flex justify-between items-center min-w-[1275px] text-white">
         <ul className="flex justify-center items-center gap-x-10 font-extralight">
           <li className="rounded-4xl bg-orange-400 py-3 px-6 font-semibold">
@@ -25,7 +54,7 @@ const Navbar = () => {
           <li>Contact</li>
         </ul>
       </nav>
-    </div>
+    </motion.div>
   );
 };
 

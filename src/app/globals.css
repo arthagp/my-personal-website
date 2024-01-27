@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Navbar */
+.navbar{
+  position: sticky;
+  z-index: 999;
+  top: 23px;
+  /* background-color: white; */
+}
+
+.shadow-box{
+  box-shadow: 2px 10px 10px rgba(0, 0, 0, 0.4);
+}
+
+/*  */
+
 .property::before {
   content: "";
   position: absolute;
