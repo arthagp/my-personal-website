@@ -28,7 +28,6 @@ const Contact = () => {
           Send
         </button>
       </div>
-      {/* disini bisa kamu tambahkan motion banner yang bergerak seperti di referensi */}
     </div>
   );
 };

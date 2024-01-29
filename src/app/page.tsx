@@ -6,6 +6,7 @@ import About from "@/components/About";
 import Certificates from "@/components/Certificates";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import Marquee from "@/components/Marquee";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <About />
       <Certificates />
       <Contact />
+      <Marquee />
       <Footer />
     </div>
   );

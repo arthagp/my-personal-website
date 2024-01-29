@@ -3,14 +3,13 @@
 @tailwind utilities;
 
 /* Navbar */
-.navbar{
+.navbar {
   position: sticky;
   z-index: 999;
   top: 23px;
-  /* background-color: white; */
 }
 
-.shadow-box{
+.shadow-box {
   box-shadow: 2px 10px 10px rgba(0, 0, 0, 0.4);
 }
 
@@ -21,7 +20,6 @@
   position: absolute;
   top: 120px;
   left: -2px;
-  /* background: #111; */
   background: transparent;
   width: 25px;
   height: 25px;
@@ -60,7 +58,7 @@
   height: 20px;
   border-radius: 20px;
   z-index: -10;
-  bottom:9px;
+  bottom: 9px;
   right: 9px;
 }
 
@@ -82,8 +80,42 @@
   background-color: #ff9800;
   color: #fff;
   border: none;
+  transform: rotate(-50deg);
+  animation: ease-in-out;
+  animation-duration: 3s;
 }
 
 .btnArrow:hover .arrow-icon {
   color: #fff;
+  cursor: pointer;
+}
+
+.card-bg:hover .bg-button,
+.card-bg:hover {
+  background-color: #ff9800;
+}
+
+.card-bg:hover .bg-button {
+  transform: rotate(-50deg);
+  animation: ease-in-out;
+  animation-duration: 3s;
+}
+
+/* infinite marquee */
+
+.marquee__part {
+  flex-shrink: 0;
+  padding: 1px 4px;
+}
+
+.marquee {
+  background: #ff9800;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+.marquee__inner {
+  transform: rotate(-1.2deg);
+  -webkit-font-smoothing: antialiased;
 }

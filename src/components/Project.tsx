@@ -1,8 +1,10 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import btnArrow from "../../public/btn-arrow-diagonal.png";
 import dummyProject from "../../public/dummy-project.png";
-import myPhoto from "../../public/my-photo-new.png";
+import { motion } from "framer-motion";
+import { FaArrowRight } from "react-icons/fa6";
 
 const Project = () => {
   // nantinya gallery project ini data nya akan di buat dengan format json.
@@ -20,11 +22,15 @@ const Project = () => {
       </div>
       <div className="flex justify-center items-center gap-x-12 mt-12 mb-16">
         {/* gallery projects */}
-        <div className="border border-gray-500 rounded-3xl w-[290px] h-[320px]">
+        <div className="border border-gray-500 card-bg rounded-3xl w-[290px] h-[320px] ease-in-out duration-300">
           <div className="border-b border-gray-500">
             <h1 className="text-white font-medium py-5 pl-5">Todo List</h1>
           </div>
-          <div className="relative flex justify-center items-center w-[100%] h-[80%]">
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="relative flex justify-center items-center w-[100%] h-[80%]"
+          >
             <div className="absolute bottom-4 rounded-3xl bg-gray-500 w-[80%] h-[82%]"></div>
             <div className="absolute bottom-1 rounded-3xl bg-gray-300 w-[90%] h-[83%]"></div>
             <div className="absolute -bottom-3 rounded-3xl bg-white w-[100%] h-[84%] property"></div>
@@ -37,16 +43,20 @@ const Project = () => {
                 objectFit="cover"
               />
             </div>
-            <div className="absolute -bottom-5 -left-2 border-[12px] border-gray-800 rounded-full">
-              <Image src={btnArrow} alt="btn-arrow" width={70} />
+            <div className="absolute bg-button flex justify-center items-center ease-in-out duration-300 -bottom-5 -left-2 border-[12px] w-[94px] h-[94px] border-gray-800 bg-neutral-700 text-white rounded-full">
+              <FaArrowRight className="w-10 h-10" />
             </div>
-          </div>
+          </motion.div>
         </div>
-        <div className="border border-gray-500 rounded-3xl w-[290px] h-[320px]">
+        <div className="border border-gray-500 card-bg rounded-3xl w-[290px] h-[320px] ease-in-out duration-300">
           <div className="border-b border-gray-500">
             <h1 className="text-white font-medium py-5 pl-5">Todo List</h1>
           </div>
-          <div className="relative flex justify-center items-center w-[100%] h-[80%]">
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="relative flex justify-center items-center w-[100%] h-[80%]"
+          >
             <div className="absolute bottom-4 rounded-3xl bg-gray-500 w-[80%] h-[82%]"></div>
             <div className="absolute bottom-1 rounded-3xl bg-gray-300 w-[90%] h-[83%]"></div>
             <div className="absolute -bottom-3 rounded-3xl bg-white w-[100%] h-[84%] property"></div>
@@ -59,16 +69,20 @@ const Project = () => {
                 objectFit="cover"
               />
             </div>
-            <div className="absolute -bottom-5 -left-2 border-[12px] border-gray-800 rounded-full">
-              <Image src={btnArrow} alt="btn-arrow" width={70} />
+            <div className="absolute bg-button flex justify-center items-center ease-in-out duration-300 -bottom-5 -left-2 border-[12px] w-[94px] h-[94px] border-gray-800 bg-neutral-700 text-white rounded-full">
+              <FaArrowRight className="w-10 h-10" />
             </div>
-          </div>
+          </motion.div>
         </div>
-        <div className="border border-gray-500 rounded-3xl w-[290px] h-[320px]">
+        <div className="border border-gray-500 card-bg rounded-3xl w-[290px] h-[320px] ease-in-out duration-300">
           <div className="border-b border-gray-500">
             <h1 className="text-white font-medium py-5 pl-5">Todo List</h1>
           </div>
-          <div className="relative flex justify-center items-center w-[100%] h-[80%]">
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="relative flex justify-center items-center w-[100%] h-[80%]"
+          >
             <div className="absolute bottom-4 rounded-3xl bg-gray-500 w-[80%] h-[82%]"></div>
             <div className="absolute bottom-1 rounded-3xl bg-gray-300 w-[90%] h-[83%]"></div>
             <div className="absolute -bottom-3 rounded-3xl bg-white w-[100%] h-[84%] property"></div>
@@ -81,10 +95,10 @@ const Project = () => {
                 objectFit="cover"
               />
             </div>
-            <div className="absolute -bottom-5 -left-2 border-[12px] border-gray-800 rounded-full">
-              <Image src={btnArrow} alt="btn-arrow" width={70} />
+            <div className="absolute bg-button flex justify-center items-center ease-in-out duration-300 -bottom-5 -left-2 border-[12px] w-[94px] h-[94px] border-gray-800 bg-neutral-700 text-white rounded-full">
+              <FaArrowRight className="w-10 h-10" />
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
       {/* card -> pisahkan menjadi component nantinya */}

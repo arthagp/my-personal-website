@@ -1,13 +1,32 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import myPhoto from "../../public/my-photo-new.png";
 import vector1 from "../../public/Vector 1.png";
 import vector2 from "../../public/Vector 2.png";
+import bgHeroDraw from "../../public/bg-hero.png";
+import { motion } from "framer-motion";
 
 const Hero = () => {
+  const [isPhotoHover, setIsPhotoHover] = useState<boolean>(false);
+
   return (
     <div className="relative flex justify-center items-center flex-col my-10 pb-[250px]">
-      <div className="relative flex justify-center items-center flex-col">
+      {/* pass */}
+      <motion.div
+        initial={{ y: 0 }}
+        animate={{
+          y: isPhotoHover ? 25 : 0,
+          opacity: isPhotoHover ? 0 : 1,
+          scale: isPhotoHover ? 0.9 : 1,
+        }}
+        transition={{ duration: 0.4 }}
+        className={`${
+          isPhotoHover
+            ? "opacity-0"
+            : "opacity-100 transition-opacity duration-500"
+        } relative flex justify-center items-center flex-col`}
+      >
         <div className="relative flex justify-center items-center">
           <span className="absolute flex -top-5 -right-5">
             <Image src={vector1} alt="vector-1" width={25} height={25} />
@@ -25,11 +44,35 @@ const Hero = () => {
             <Image src={vector2} alt="vector-2" width={55} height={55} />
           </span>
         </div>
-      </div>
-      <div className="absolute top-36">
+      </motion.div>
+      {/* pass */}
+      <div
+        onMouseEnter={() => {
+          setIsPhotoHover(true);
+        }}
+        onMouseLeave={() => {
+          setIsPhotoHover(false);
+        }}
+        className="absolute top-36"
+      >
         <div className="relative flex flex-col justify-center items-center">
           {/* berisi my photo */}
-          <span className="absolute bg-orange-400 top-24 rounded-full w-[500px] h-[500px]"></span>
+          <span className="absolute bg-orange-400 top-24 rounded-full w-[550px] h-[550px]"></span>
+          <motion.span
+            initial={{ y: 0 }}
+            animate={{
+              opacity: isPhotoHover ? 1 : 0,
+              scale: isPhotoHover ? 1.2 : 1,
+            }}
+            transition={{ type: "spring", stiffness: 250 }}
+            className={`${
+              isPhotoHover
+                ? "opacity-100 transition-opacity duration-500"
+                : "opacity-0"
+            } absolute -top-16 w-[650px] h-[650px]`}
+          >
+            <Image src={bgHeroDraw} alt="bg-heroo" />
+          </motion.span>
           <Image
             className="z-10"
             src={myPhoto}

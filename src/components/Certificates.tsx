@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
 import dicodingFe from "../../public/dicodingFE.png";
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa6";
+import { motion } from "framer-motion";
 
 const Certificates = () => {
   return (
@@ -12,9 +14,13 @@ const Certificates = () => {
             Lets have a look at <br /> my{" "}
             <span className="text-orange-400">Certificate</span>
           </h1>
-          <button className="bg-orange-400 rounded-4xl py-[5px] px-5 text-white font-semibold btnSeeAll ease-in-out duration-200">
+          <motion.button
+            className="bg-orange-400 rounded-4xl py-[5px] px-5 text-white font-semibold hover:bg-black"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
             See All
-          </button>
+          </motion.button>
         </div>
         <div className="grid grid-cols-3 m-12 gap-7">
           <div className="relative card bg-gradient-to-r from-black rounded-3xl w-[400px] h-[290px]">
