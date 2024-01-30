@@ -1,16 +1,25 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import dicodingFe from "../../public/dicodingFE.png";
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa6";
 import { motion } from "framer-motion";
+import Modal from "./Modal";
 
 const Certificates = () => {
+  const type: string = 'certificate'
+  const [isModal, setIsModal] = useState<Boolean>(false);
+
+  const handleModal = () => {
+    setIsModal(true);
+  };
+
   return (
     <section
       id="certificate"
       className="flex flex-col justify-center items-center my-20 "
     >
+      {isModal && <Modal isModal={setIsModal} type={type}/>}
       <div className="flex justify-between items-center w-[1200px]">
         <h1 className="text-4xl font-semibold">
           Lets have a look at <br /> my{" "}
@@ -31,7 +40,10 @@ const Certificates = () => {
             src={dicodingFe}
             alt="dicodingFe"
           />
-          <button className="absolute btnArrow text-orange-400 transition duration-300 hover:text-white right-4 top-4 hover:bg-orange-400 hover:border-none border-orange-300 border rounded-full w-9 h-9 flex justify-center items-center">
+          <button
+            onClick={handleModal}
+            className="absolute btnArrow text-orange-400 transition duration-300 hover:text-white right-4 top-4 hover:bg-orange-400 hover:border-none border-orange-300 border rounded-full w-9 h-9 flex justify-center items-center"
+          >
             <FaArrowRight className="arrow-icon" />
           </button>
           <div className="bg-gradient-to-r rounded-3xl from-gray-800 absolute w-[80%] h-[80px] opacity-55 bottom-0"></div>

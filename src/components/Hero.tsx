@@ -83,7 +83,7 @@ const Hero = () => {
         <h1 className="font-semibold text-2xl">1++ Years</h1>
         <p className="font-medium text-sm">Experience</p>
       </motion.div>
-      <div className="absolute top-36">
+      <div className="absolute top-36 z-10">
         <div className="relative flex flex-col justify-center items-center">
           {/* berisi my photo */}
           <span className="absolute bg-orange-400 top-24 rounded-full w-[550px] h-[550px]"></span>

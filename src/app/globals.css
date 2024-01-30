@@ -5,10 +5,9 @@
 /* Navbar */
 .navbar {
   position: sticky;
-  z-index: 999;
+  z-index: 20;
   top: 23px;
 }
-
 .shadow-box {
   box-shadow: 2px 10px 10px rgba(0, 0, 0, 0.4);
 }
