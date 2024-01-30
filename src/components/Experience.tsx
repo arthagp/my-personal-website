@@ -2,7 +2,10 @@ import React from "react";
 
 const Experience = () => {
   return (
-    <div className="flex flex-col justify-center items-center">
+    <section
+      id="experience"
+      className="flex flex-col justify-center items-center"
+    >
       <div className="my-16">
         <h1 className="font-semibold text-4xl ">
           My <span className="text-orange-400">Work Experiences</span>
@@ -110,7 +113,7 @@ const Experience = () => {
           {/*  */}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

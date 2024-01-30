@@ -9,7 +9,10 @@ import { FaArrowRight } from "react-icons/fa6";
 const Project = () => {
   // nantinya gallery project ini data nya akan di buat dengan format json.
   return (
-    <div className="z-20 rounded-3xl flex flex-col justify-center bg-gray-800 items-center w-[100%] bg-project">
+    <section
+      id="project"
+      className="z-20 rounded-3xl flex flex-col justify-center bg-gray-800 items-center w-[100%] bg-project"
+    >
       <div className="flex justify-between items-center w-[90%] my-16">
         <h1 className="text-white font-bold text-4xl">
           My <span className="text-orange-400">Projects</span>
@@ -102,7 +105,7 @@ const Project = () => {
         </div>
       </div>
       {/* card -> pisahkan menjadi component nantinya */}
-    </div>
+    </section>
   );
 };
 

@@ -6,13 +6,32 @@ import vector1 from "../../public/Vector 1.png";
 import vector2 from "../../public/Vector 2.png";
 import bgHeroDraw from "../../public/bg-hero.png";
 import { motion } from "framer-motion";
+import { FaQuoteLeft } from "react-icons/fa";
+import { FaStar } from "react-icons/fa6";
 
 const Hero = () => {
   const [isPhotoHover, setIsPhotoHover] = useState<boolean>(false);
 
   return (
-    <div className="relative flex justify-center items-center flex-col my-10 pb-[250px]">
+    <section
+      id="home"
+      className="relative w-full flex justify-center items-center flex-col my-10 pb-[250px]"
+    >
       {/* pass */}
+      <motion.div
+        className="absolute bottom-24 left-28 w-52"
+        initial={{ y: 0 }}
+        animate={{
+          y: isPhotoHover ? -200 : 0,
+        }}
+        transition={{ type: "spring", stiffness: 100 }}
+      >
+        <FaQuoteLeft className="my-2" />
+        <p className="font-medium text-sm">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+          blanditiis voluptates in
+        </p>
+      </motion.div>
       <motion.div
         initial={{ y: 0 }}
         animate={{
@@ -46,15 +65,25 @@ const Hero = () => {
         </div>
       </motion.div>
       {/* pass */}
-      <div
-        onMouseEnter={() => {
-          setIsPhotoHover(true);
+      <motion.div
+        className="absolute bottom-36 right-28"
+        initial={{ y: 0 }}
+        animate={{
+          y: isPhotoHover ? -200 : 0,
         }}
-        onMouseLeave={() => {
-          setIsPhotoHover(false);
-        }}
-        className="absolute top-36"
+        transition={{ type: "spring", stiffness: 100 }}
       >
+        <div className="flex justify-around items-center">
+          <FaStar className="text-orange-400" />
+          <FaStar className="text-orange-400" />
+          <FaStar className="text-orange-400" />
+          <FaStar className="text-orange-400" />
+          <FaStar className="text-orange-400" />
+        </div>
+        <h1 className="font-semibold text-2xl">1++ Years</h1>
+        <p className="font-medium text-sm">Experience</p>
+      </motion.div>
+      <div className="absolute top-36">
         <div className="relative flex flex-col justify-center items-center">
           {/* berisi my photo */}
           <span className="absolute bg-orange-400 top-24 rounded-full w-[550px] h-[550px]"></span>
@@ -74,6 +103,12 @@ const Hero = () => {
             <Image src={bgHeroDraw} alt="bg-heroo" />
           </motion.span>
           <Image
+            onMouseEnter={() => {
+              setIsPhotoHover(true);
+            }}
+            onMouseLeave={() => {
+              setIsPhotoHover(false);
+            }}
             className="z-10"
             src={myPhoto}
             alt={"Picture of the author"}
@@ -82,7 +117,7 @@ const Hero = () => {
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

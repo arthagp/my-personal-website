@@ -119,3 +119,14 @@
   transform: rotate(-1.2deg);
   -webkit-font-smoothing: antialiased;
 }
+
+ul,
+li {
+  cursor: pointer;
+}
+
+.active {
+  border-radius: 30px;
+  background-color: #ff9800;
+  font-weight: 600;
+}

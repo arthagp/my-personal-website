@@ -5,7 +5,10 @@ import banner from "../../public/motionBanner.png";
 
 const Contact = () => {
   return (
-    <div className="flex flex-col justify-center items-center gap-16 my-16">
+    <section
+      id="contact"
+      className="flex flex-col justify-center items-center gap-16 my-20"
+    >
       <div>
         <h1 className="text-5xl font-semibold text-center">
           Have an Awesome Project <br /> Idea?{" "}
@@ -28,7 +31,7 @@ const Contact = () => {
           Send
         </button>
       </div>
-    </div>
+    </section>
   );
 };
 

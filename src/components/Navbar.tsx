@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-scroll";
 
 const Navbar = () => {
   //TODO : membuat scrollY menjadi hook useState, ini untuk menyimpan perubahan yang ada, jadi ketika handleScroll ke trigger maka action active
@@ -35,12 +36,44 @@ const Navbar = () => {
     >
       <nav className="flex justify-between items-center min-w-[1275px] text-white">
         <ul className="flex justify-center items-center gap-x-10 font-extralight">
-          <li className="rounded-4xl bg-orange-400 py-3 px-6 font-semibold">
-            Home
+          <li>
+            <Link
+              to="home"
+              smooth={true}
+              offset={-300}
+              spy={true}
+              activeClass="active"
+              className="py-3 px-6"
+            >
+              Home
+            </Link>
           </li>
-          {/* <li>Home</li> */}
-          <li>Project</li>
-          <li>Experience</li>
+
+          <li>
+            <Link
+              to="project"
+              smooth={true}
+              offset={-90}
+              spy={true}
+              activeClass="active"
+              className="py-3 px-6"
+            >
+              Project
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              to="experience"
+              smooth={true}
+              offset={-50}
+              spy={true}
+              activeClass="active"
+              className="py-3 px-6"
+            >
+              Experience
+            </Link>
+          </li>
         </ul>
         <div className="relative flex justify-center items-center h-12">
           <span className="absolute opacity-90 top-1 left-1 rounded-full w-6 h-6 bg-orange-400"></span>
@@ -48,10 +81,41 @@ const Navbar = () => {
           <span className="absolute opacity-90 bottom-1 right-1 rounded-full w-6 h-6 bg-orange-400"></span>
         </div>
         <ul className="flex justify-center items-center gap-x-10 font-extralight mx-5">
-          {/* <li className="rounded-4xl bg-orange-400 py-3 px-6 font-semibold">About</li> */}
-          <li>About</li>
-          <li>Certificate</li>
-          <li>Contact</li>
+          <li>
+            <Link
+              to="about"
+              smooth={true}
+              offset={-50}
+              spy={true}
+              activeClass="active"
+              className="py-3 px-6"
+            >
+              About
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="certificate"
+              smooth={true}
+              offset={-90}
+              spy={true}
+              activeClass="active"
+              className="py-3 px-6"
+            >
+              Certificate
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="contact"
+              smooth={true}
+              offset={-200}
+              spy={true}
+              className="py-3 px-6"
+            >
+              Contact
+            </Link>
+          </li>
         </ul>
       </nav>
     </motion.div>
