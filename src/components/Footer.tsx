@@ -33,10 +33,12 @@ const Footer = () => {
               </h1>
             </div>
             <p className="opacity-70 text-sm font-medium">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-              saepe impedit, doloribus aliquam, quasi eveniet consectetur
-              incidunt veritatis nobis officiis dolores maxime. Molestias quasi
-              nisi mollitia culpa at voluptatem cumque.
+              I specialize in front-end development, with a strong focus on
+              React. My expertise in React ranges from intermediate to expert
+              level. Beyond coding, I'm deeply passionate about crafting
+              captivating and user-friendly experiences. Join me on my journey
+              as I create dynamic and innovative interfaces that seamlessly
+              engage users.
             </p>
             <div className="flex gap-x-3">
               <FaInstagram color="white" size="1.5em" />

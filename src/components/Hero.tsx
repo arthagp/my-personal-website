@@ -17,7 +17,7 @@ const Hero = () => {
       id="home"
       className="relative w-full flex justify-center items-center flex-col my-10 pb-[250px]"
     >
-      {/* pass */}
+      {/*  */}
       <motion.div
         className="absolute bottom-24 left-28 w-52"
         initial={{ y: 0 }}
@@ -28,8 +28,8 @@ const Hero = () => {
       >
         <FaQuoteLeft className="my-2" />
         <p className="font-medium text-sm">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
-          blanditiis voluptates in
+          Artha's Front End Developer skills are exceptional and have been
+          crucial to our website's outstanding success..!
         </p>
       </motion.div>
       <motion.div
@@ -93,7 +93,7 @@ const Hero = () => {
               opacity: isPhotoHover ? 1 : 0,
               scale: isPhotoHover ? 1.2 : 1,
             }}
-            transition={{ type: "spring", stiffness: 250 }}
+            transition={{ type: "spring", bounce: 0.5 }}
             className={`${
               isPhotoHover
                 ? "opacity-100 transition-opacity duration-500"

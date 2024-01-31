@@ -39,10 +39,12 @@ const About = () => {
             About <span className="text-orange-400">me.</span>
           </h1>
           <p className="opacity-70 font-light text-white">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi
-            expedita reiciendis ullam! Quo nihil excepturi voluptates impedit,
-            perferendis libero eveniet aspernatur et dolorem vero fuga
-            praesentium eligendi quaerat necessitatibus mollitia!
+            I am a full-stack developer, but I lean more towards front-end
+            development. My preferred tech stack revolves around React, making
+            my React skills intermediate to expert level. Beyond just writing
+            code, I find passion in crafting engaging and responsive user
+            experiences. This is my journey in creating dynamic and innovative
+            interfaces that seamlessly interact with users.
           </p>
           <div className="flex justify-around justify-items-start text-white">
             {/* untuk my tech stack */}

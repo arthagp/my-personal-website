@@ -1,6 +1,24 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 
 const Experience = () => {
+  const [experiences, setExperiences] = useState<string[]>([]);
+
+  const fetchExperience = async () => {
+    try {
+      const response = await fetch(`/api/experience`);
+      const { data } = await response.json();
+      setExperiences(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchExperience();
+  }, []);
+
+  console.log(experiences);
   return (
     <section
       id="experience"

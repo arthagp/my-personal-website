@@ -1,0 +1,40 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Portofolio {
+  id            Int     @id @default(autoincrement())
+  title         String
+  type          String
+  description   String
+  imageUrl      String
+  urlRepository String
+  urlDeployment String? //'?' optional its can bee 'null'
+}
+
+model Certificate {
+  id             Int     @id @default(autoincrement())
+  title          String
+  type           String
+  description    String
+  imageUrl       String
+  urlCertificate String?
+}
+
+model Experience {
+  id          Int      @id @default(autoincrement())
+  companyName String
+  role        String
+  description String
+  startDate   DateTime
+  enDate      DateTime
+  place       String?
+}

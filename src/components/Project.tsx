@@ -27,10 +27,10 @@ const Project = () => {
             <span className="text-orange-400">Project</span>
           </h1>
           <p className="text-white max-w-[550px] text-justify">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
-            atque hic harum corrupti ea numquam libero ut mollitia dolores cum.
-            Ullam natus quibusdam accusamus voluptate neque nisi, ipsa a
-            laboriosam.
+            Check out my diverse portfolio of self-built projects! From
+            full-stack applications to captivating landing pages and stunning
+            front-end websites, each project showcases my unique skills and
+            creativity. Explore the possibilities!
           </p>
         </div>
         <div className="flex justify-center items-center gap-x-12 mt-12 mb-16">
