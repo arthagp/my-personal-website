@@ -18,6 +18,7 @@ const Certificates = () => {
   const type: string = "certificate";
   const [isModal, setIsModal] = useState<Boolean>(false);
   const [certificates, setCertificates] = useState<Certificate[]>([]);
+  const [idCertificate, setIdCertificate] = useState<number>();
 
   const fetchAllCertificates = async () => {
     try {
@@ -33,9 +34,12 @@ const Certificates = () => {
     fetchAllCertificates();
   }, []);
 
-  const handleModal = () => {
+  const handleModal = (id: number) => {
+    setIdCertificate(id);
     setIsModal(true);
   };
+
+  // console.log(certificates)
 
   if (!certificates) {
     return null;
@@ -46,7 +50,9 @@ const Certificates = () => {
       id="certificate"
       className="flex flex-col justify-center items-center my-20 "
     >
-      {isModal && <Modal isModal={setIsModal} type={type} />}
+      {isModal && (
+        <Modal certificateId={idCertificate} isModal={setIsModal} type={type} />
+      )}
       <div className="flex justify-between items-center w-[1200px]">
         <h1 className="text-4xl font-semibold">
           Lets have a look at <br /> my{" "}
@@ -62,7 +68,10 @@ const Certificates = () => {
       </div>
       <div className="grid grid-cols-3 m-12 gap-7">
         {certificates.map((certificate) => (
-          <div className="relative card bg-gradient-to-r from-black rounded-3xl w-[400px] h-[290px]">
+          <div
+            key={certificate.id}
+            className="relative card bg-gradient-to-r from-black rounded-3xl w-[400px] h-[290px]"
+          >
             <Image
               className="rounded-3xl opacity-80"
               src={certificate.imageUrl}
@@ -71,7 +80,7 @@ const Certificates = () => {
               height={500}
             />
             <button
-              onClick={handleModal}
+              onClick={() => handleModal(certificate.id)}
               className="absolute btnArrow text-orange-400 transition duration-300 hover:text-white right-4 top-4 hover:bg-orange-400 hover:border-none border-orange-300 border rounded-full w-9 h-9 flex justify-center items-center"
             >
               <FaArrowRight className="arrow-icon" />

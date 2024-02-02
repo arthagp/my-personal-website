@@ -18,7 +18,7 @@ const Experience = () => {
     fetchExperience();
   }, []);
 
-  console.log(experiences);
+  // console.log(experiences);
   return (
     <section
       id="experience"
