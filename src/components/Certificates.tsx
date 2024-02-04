@@ -4,15 +4,7 @@ import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import Modal from "./Modal";
-
-interface Certificate {
-  id: number;
-  title: string;
-  type: string;
-  description: string;
-  imageUrl: string;
-  urlCertificate: string;
-}
+import { Certificate } from "../types/certificate";
 
 const Certificates = () => {
   const type: string = "certificate";

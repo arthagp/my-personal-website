@@ -4,20 +4,12 @@ import Image from "next/image";
 import dicodingFe from "../../public/dicodingFE.png";
 import { FaGithub } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
+import { Certificate } from "../types/certificate";
 
 interface ModalProps {
   isModal: (isOpen: boolean) => void;
   type: string;
   certificateId?: number;
-}
-
-interface Certificate {
-  id: number;
-  title: string;
-  type: string;
-  description: string;
-  imageUrl: string;
-  urlCertificate: string;
 }
 
 const Modal = ({ isModal, type, certificateId }: ModalProps) => {
@@ -33,7 +25,6 @@ const Modal = ({ isModal, type, certificateId }: ModalProps) => {
     }
   };
 
-  // console.log(typeof certificate, "ini masuk loh");
 
   useEffect(() => {
     if (type === "certificate" && certificateId !== undefined) {

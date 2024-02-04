@@ -1,19 +1,42 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import dummyProject from "../../public/dummy-project.png";
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa6";
 import Modal from "./Modal";
+import { Portofolio } from "@/types/project";
 
 const Project = () => {
   // nantinya gallery project ini data nya akan di buat dengan format json.
   const type: string = "project";
   const [isModal, setIsModal] = useState<Boolean>(false);
+  const [projects, setProjects] = useState<Portofolio[]>([]);
+  const [idProject, setIdProject] = useState<number>();
 
-  const handleModal = () => {
-    setIsModal(true);
+  const fetchAllProjects = async () => {
+    try {
+      const response = await fetch("/api/project");
+      const { data } = await response.json();
+      setProjects(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
+
+  useEffect(() => {
+    fetchAllProjects();
+  }, []);
+
+  const handleModal = (id: number) => {
+    setIsModal(true);
+    setIdProject(id);
+  };
+
+  if (!projects) {
+    return null;
+  }
+
   return (
     <>
       {isModal && <Modal isModal={setIsModal} type={type} />}
@@ -34,90 +57,42 @@ const Project = () => {
           </p>
         </div>
         <div className="flex justify-center items-center gap-x-12 mt-12 mb-16">
-          {/* gallery projects */}
-          <div className="border border-gray-500 card-bg rounded-3xl w-[290px] h-[320px] ease-in-out duration-300">
-            <div className="border-b border-gray-500">
-              <h1 className="text-white font-medium py-5 pl-5">Todo List</h1>
-            </div>
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="relative flex justify-center items-center w-[100%] h-[80%]"
-            >
-              <div className="absolute bottom-4 rounded-3xl bg-gray-500 w-[80%] h-[82%]"></div>
-              <div className="absolute bottom-1 rounded-3xl bg-gray-300 w-[90%] h-[83%]"></div>
-              <div className="absolute -bottom-3 rounded-3xl bg-white w-[100%] h-[84%] property"></div>
-              <div className="absolute -bottom-3 rounded-3xl bg-white w-[100%] h-[84%] property1">
-                <Image
-                  className="rounded-3xl"
-                  src={dummyProject}
-                  alt="project1"
-                  layout="fill"
-                  objectFit="cover"
-                />
+          {projects.map((project) => (
+            <div className="border border-gray-500 card-bg rounded-3xl w-[290px] h-[320px] ease-in-out duration-300">
+              <div className="border-b border-gray-500">
+                <h1 className="text-white font-medium py-5 pl-5">
+                  {project.title}
+                </h1>
               </div>
-              <button
-                onClick={handleModal}
-                className="absolute bg-button flex justify-center items-center ease-in-out duration-300 -bottom-5 -left-2 border-[12px] w-[94px] h-[94px] border-gray-800 bg-neutral-700 text-white rounded-full"
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="relative flex justify-center items-center w-[100%] h-[80%]"
               >
-                <FaArrowRight className="w-10 h-10" />
-              </button>
-            </motion.div>
-          </div>
-          <div className="border border-gray-500 card-bg rounded-3xl w-[290px] h-[320px] ease-in-out duration-300">
-            <div className="border-b border-gray-500">
-              <h1 className="text-white font-medium py-5 pl-5">Todo List</h1>
+                <div className="absolute bottom-4 rounded-3xl bg-gray-500 w-[80%] h-[82%]"></div>
+                <div className="absolute bottom-1 rounded-3xl bg-gray-300 w-[90%] h-[83%]"></div>
+                <div className="absolute -bottom-3 rounded-3xl bg-white w-[100%] h-[84%] property"></div>
+                <div className="absolute -bottom-3 rounded-3xl bg-white w-[100%] h-[84%] property1">
+                  <Image
+                    className="rounded-3xl"
+                    src={dummyProject}
+                    alt="project1"
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
+                <button
+                  onClick={() => {
+                    handleModal(project.id);
+                  }}
+                  className="absolute bg-button flex justify-center items-center ease-in-out duration-300 -bottom-5 -left-2 border-[12px] w-[94px] h-[94px] border-gray-800 bg-neutral-700 text-white rounded-full"
+                >
+                  <FaArrowRight className="w-10 h-10" />
+                </button>
+              </motion.div>
             </div>
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="relative flex justify-center items-center w-[100%] h-[80%]"
-            >
-              <div className="absolute bottom-4 rounded-3xl bg-gray-500 w-[80%] h-[82%]"></div>
-              <div className="absolute bottom-1 rounded-3xl bg-gray-300 w-[90%] h-[83%]"></div>
-              <div className="absolute -bottom-3 rounded-3xl bg-white w-[100%] h-[84%] property"></div>
-              <div className="absolute -bottom-3 rounded-3xl bg-white w-[100%] h-[84%] property1">
-                <Image
-                  className="rounded-3xl"
-                  src={dummyProject}
-                  alt="project1"
-                  layout="fill"
-                  objectFit="cover"
-                />
-              </div>
-              <div className="absolute bg-button flex justify-center items-center ease-in-out duration-300 -bottom-5 -left-2 border-[12px] w-[94px] h-[94px] border-gray-800 bg-neutral-700 text-white rounded-full">
-                <FaArrowRight className="w-10 h-10" />
-              </div>
-            </motion.div>
-          </div>
-          <div className="border border-gray-500 card-bg rounded-3xl w-[290px] h-[320px] ease-in-out duration-300">
-            <div className="border-b border-gray-500">
-              <h1 className="text-white font-medium py-5 pl-5">Todo List</h1>
-            </div>
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="relative flex justify-center items-center w-[100%] h-[80%]"
-            >
-              <div className="absolute bottom-4 rounded-3xl bg-gray-500 w-[80%] h-[82%]"></div>
-              <div className="absolute bottom-1 rounded-3xl bg-gray-300 w-[90%] h-[83%]"></div>
-              <div className="absolute -bottom-3 rounded-3xl bg-white w-[100%] h-[84%] property"></div>
-              <div className="absolute -bottom-3 rounded-3xl bg-white w-[100%] h-[84%] property1">
-                <Image
-                  className="rounded-3xl"
-                  src={dummyProject}
-                  alt="project1"
-                  layout="fill"
-                  objectFit="cover"
-                />
-              </div>
-              <div className="absolute bg-button flex justify-center items-center ease-in-out duration-300 -bottom-5 -left-2 border-[12px] w-[94px] h-[94px] border-gray-800 bg-neutral-700 text-white rounded-full">
-                <FaArrowRight className="w-10 h-10" />
-              </div>
-            </motion.div>
-          </div>
+          ))}
         </div>
-        {/* card -> pisahkan menjadi component nantinya */}
       </section>
     </>
   );

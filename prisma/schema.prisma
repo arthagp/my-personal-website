@@ -17,6 +17,7 @@ model Portofolio {
   description   String
   imageUrl      String
   urlRepository String
+  urlRepoServerSide String?
   urlDeployment String? //'?' optional its can bee 'null'
 }
 
