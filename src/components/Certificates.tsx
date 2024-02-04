@@ -1,16 +1,18 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { FaArrowRight } from "react-icons/fa6";
+import { FaArrowRight, FaArrowLeft } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import Modal from "./Modal";
 import { Certificate } from "../types/certificate";
 
 const Certificates = () => {
   const type: string = "certificate";
-  const [isModal, setIsModal] = useState<Boolean>(false);
+  const [isModal, setIsModal] = useState<boolean>(false);
   const [certificates, setCertificates] = useState<Certificate[]>([]);
   const [idCertificate, setIdCertificate] = useState<number>();
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [certificatesPerPage] = useState<number>(3);
 
   const fetchAllCertificates = async () => {
     try {
@@ -31,16 +33,41 @@ const Certificates = () => {
     setIsModal(true);
   };
 
-  // console.log(certificates)
+  const indexOfLastCertificate = currentPage * certificatesPerPage;
+  const indexOfFirstCertificate = indexOfLastCertificate - certificatesPerPage;
+  const currentCertificates = certificates.slice(
+    indexOfFirstCertificate,
+    indexOfLastCertificate
+  );
 
-  if (!certificates) {
-    return null;
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
+  const paginationButtons = [];
+  for (
+    let i = 0;
+    i < Math.ceil(certificates.length / certificatesPerPage);
+    i++
+  ) {
+    paginationButtons.push(
+      <li key={i} className="flex justify-center items-center">
+        <motion.button
+          onClick={() => paginate(i + 1)}
+          className={`${
+            currentPage === i + 1 ? "bg-orange-400 text-white" : "bg-gray-300"
+          } rounded-full ${
+            currentPage === i + 1 ? "px-3 py-3" : "px-2 py-2"
+          } hover:bg-orange-500`}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        ></motion.button>
+      </li>
+    );
   }
 
   return (
-    <section
+    <motion.section
       id="certificate"
-      className="flex flex-col justify-center items-center my-20 "
+      className="flex flex-col justify-center items-center my-20"
     >
       {isModal && (
         <Modal certificateId={idCertificate} isModal={setIsModal} type={type} />
@@ -59,17 +86,18 @@ const Certificates = () => {
         </motion.button>
       </div>
       <div className="grid grid-cols-3 m-12 gap-7">
-        {certificates.map((certificate) => (
-          <div
+        {currentCertificates.map((certificate) => (
+          <motion.div
             key={certificate.id}
             className="relative card bg-gradient-to-r from-black rounded-3xl w-[400px] h-[290px]"
+            whileHover={{ scale: 1.05 }}
           >
             <Image
-              className="rounded-3xl opacity-80"
+              className="rounded-3xl opacity-80 object-cover"
               src={certificate.imageUrl}
               alt="dicodingFe"
-              width={500}
-              height={500}
+              fill={true}
+              layout="fill"
             />
             <button
               onClick={() => handleModal(certificate.id)}
@@ -83,10 +111,51 @@ const Certificates = () => {
                 {certificate.title}
               </h1>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </section>
+      <div className="flex justify-center mt-4">
+        <ul className="flex space-x-4 justify-center items-center">
+          <li>
+            <motion.button
+              onClick={() => paginate(currentPage - 1)}
+              disabled={currentPage === 1}
+              className={`bg-orange-400 text-white rounded-lg px-4 py-2 ${
+                currentPage === 1
+                  ? "cursor-not-allowed opacity-50"
+                  : "hover:bg-orange-500"
+              }`}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <FaArrowLeft />
+            </motion.button>
+          </li>
+          {/*  */}
+          {paginationButtons}
+          {/*  */}
+          <li>
+            <motion.button
+              onClick={() => paginate(currentPage + 1)}
+              disabled={
+                currentPage ===
+                Math.ceil(certificates.length / certificatesPerPage)
+              }
+              className={`bg-orange-400 text-white rounded-lg px-4 py-2 ${
+                currentPage ===
+                Math.ceil(certificates.length / certificatesPerPage)
+                  ? "cursor-not-allowed opacity-50"
+                  : "hover:bg-orange-500"
+              }`}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <FaArrowRight />
+            </motion.button>
+          </li>
+        </ul>
+      </div>
+    </motion.section>
   );
 };
 

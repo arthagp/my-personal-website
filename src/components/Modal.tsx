@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import dicodingFe from "../../public/dicodingFE.png";
+import dummyImg from "../../public/dummy-img.png";
 import { FaGithub } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import { Certificate } from "../types/certificate";
@@ -25,7 +25,6 @@ const Modal = ({ isModal, type, certificateId }: ModalProps) => {
     }
   };
 
-
   useEffect(() => {
     if (type === "certificate" && certificateId !== undefined) {
       handleFetchCertificate(certificateId);
@@ -39,12 +38,13 @@ const Modal = ({ isModal, type, certificateId }: ModalProps) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-gray-800 backdrop-blur-sm bg-opacity-75 z-50">
       <div className="bg-white rounded-lg overflow-hidden w-full max-w-2xl">
-        <div className="relative">
+        <div className="relative h-[450px] w-full">
           <Image
-            src={certificate?.imageUrl || dicodingFe}
-            alt="Dicoding Front End Developer"
-            width={675}
-            height={650}
+            className="object-contain"
+            src={certificate?.imageUrl || dummyImg}
+            alt={certificate?.title || "undefined"}
+            layout="fill"
+            fill={true}
           />
           <div className="absolute top-0 left-0 m-4">
             <button
