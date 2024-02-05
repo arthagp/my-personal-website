@@ -11,15 +11,17 @@ datasource db {
 }
 
 model Portofolio {
-  id            Int     @id @default(autoincrement())
-  title         String
-  type          String
-  description   String
-  imageUrl      String
-  urlRepository String
+  id                Int      @id @default(autoincrement())
+  title             String
+  type              String
+  description       String
+  imageUrl          String
+  urlRepository     String
   urlRepoServerSide String?
-  urlDeployment String? //'?' optional its can bee 'null'
+  urlDeployment     String? //'?' optional its can bee 'null'
+  techStack         Int[] // Array of strings
 }
+
 
 model Certificate {
   id             Int     @id @default(autoincrement())

@@ -6,7 +6,7 @@ export async function GET(
   context: { params: { id: string } }
 ) {
   try {
-    const id = Number(context.params.id || 0); // jadi jika tidak ada data maka return default value '0'
+    const id = Number(context.params.id || 0);
     const response = await prisma.portofolio.findUnique({
       where: {
         id: id,
