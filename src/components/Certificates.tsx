@@ -1,10 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import Modal from "./Modal";
 import { Certificate } from "../types/certificate";
+import Pagination from "./Pagination";
+import { FaArrowRight, FaArrowLeft } from "react-icons/fa6";
 
 const Certificates = () => {
   const type: string = "certificate";
@@ -12,7 +13,7 @@ const Certificates = () => {
   const [certificates, setCertificates] = useState<Certificate[]>([]);
   const [idCertificate, setIdCertificate] = useState<number>();
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [certificatesPerPage] = useState<number>(3);
+  const certificatesPerPage = 3;
 
   const fetchAllCertificates = async () => {
     try {
@@ -41,28 +42,6 @@ const Certificates = () => {
   );
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
-
-  const paginationButtons = [];
-  for (
-    let i = 0;
-    i < Math.ceil(certificates.length / certificatesPerPage);
-    i++
-  ) {
-    paginationButtons.push(
-      <li key={i} className="flex justify-center items-center">
-        <motion.button
-          onClick={() => paginate(i + 1)}
-          className={`${
-            currentPage === i + 1 ? "bg-orange-400 text-white" : "bg-gray-300"
-          } rounded-full ${
-            currentPage === i + 1 ? "px-3 py-3" : "px-2 py-2"
-          } hover:bg-orange-500`}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        ></motion.button>
-      </li>
-    );
-  }
 
   return (
     <motion.section
@@ -114,47 +93,12 @@ const Certificates = () => {
           </motion.div>
         ))}
       </div>
-      <div className="flex justify-center mt-4">
-        <ul className="flex space-x-4 justify-center items-center">
-          <li>
-            <motion.button
-              onClick={() => paginate(currentPage - 1)}
-              disabled={currentPage === 1}
-              className={`bg-orange-400 text-white rounded-lg px-4 py-2 ${
-                currentPage === 1
-                  ? "cursor-not-allowed opacity-50"
-                  : "hover:bg-orange-500"
-              }`}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <FaArrowLeft />
-            </motion.button>
-          </li>
-          {/*  */}
-          {paginationButtons}
-          {/*  */}
-          <li>
-            <motion.button
-              onClick={() => paginate(currentPage + 1)}
-              disabled={
-                currentPage ===
-                Math.ceil(certificates.length / certificatesPerPage)
-              }
-              className={`bg-orange-400 text-white rounded-lg px-4 py-2 ${
-                currentPage ===
-                Math.ceil(certificates.length / certificatesPerPage)
-                  ? "cursor-not-allowed opacity-50"
-                  : "hover:bg-orange-500"
-              }`}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <FaArrowRight />
-            </motion.button>
-          </li>
-        </ul>
-      </div>
+      {/* Pagination */}
+      <Pagination
+        currentPage={currentPage}
+        totalPages={Math.ceil(certificates.length / certificatesPerPage)}
+        onPageChange={paginate}
+      />
     </motion.section>
   );
 };

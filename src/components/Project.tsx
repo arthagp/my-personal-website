@@ -6,20 +6,19 @@ import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa6";
 import Modal from "./Modal";
 import { Portofolio } from "@/types/project";
-// icon
-
+import Pagination from "./Pagination";
 
 const Project = () => {
-  // nantinya gallery project ini data nya akan di buat dengan format json.
   const type: string = "project";
   const [isModal, setIsModal] = useState<Boolean>(false);
   const [projects, setProjects] = useState<Portofolio[]>([]);
   const [idProject, setIdProject] = useState<number>();
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const projectsPerPage = 3;
 
   const fetchAllProjects = async () => {
     try {
       const response = await fetch("/api/project");
-      console.log(response, 'ini response project')
       const { data } = await response.json();
       setProjects(data);
     } catch (error) {
@@ -33,16 +32,23 @@ const Project = () => {
 
   const handleModal = (id: number) => {
     setIsModal(true);
-    setIdProject(id)
+    setIdProject(id);
   };
 
-  if (!projects) {
-    return null;
-  }
+  const indexOfLastCertificate = currentPage * projectsPerPage;
+  const indexOfFirstCertificate = indexOfLastCertificate - projectsPerPage;
+  const currentProjects = projects.slice(
+    indexOfFirstCertificate,
+    indexOfLastCertificate
+  );
+
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   return (
     <>
-      {isModal && <Modal projectId={idProject} isModal={setIsModal} type={type} />}
+      {isModal && (
+        <Modal projectId={idProject} isModal={setIsModal} type={type} />
+      )}
       <section
         id="project"
         className="z-10 rounded-3xl flex flex-col justify-center bg-gray-800 mt-7 items-center w-[100%] bg-project"
@@ -59,43 +65,49 @@ const Project = () => {
             creativity. Explore the possibilities!
           </p>
         </div>
-        <div className="flex justify-center items-center gap-x-12 mt-12 mb-16">
-          {projects.map((project) => (
-          <div className="border border-gray-500 card-bg rounded-3xl w-[290px] h-[320px] ease-in-out duration-300">
-            <div className="border-b border-gray-500">
-              <h1 className="text-white font-medium py-5 pl-5">
-                {project.title}
-              </h1>
-            </div>
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="relative flex justify-center items-center w-[100%] h-[80%]"
+        <div className="grid grid-cols-3 m-12 gap-7 ">
+          {currentProjects.map((project) => (
+            <div
+              key={project.id}
+              className="border border-gray-500 card-bg rounded-3xl w-[370px] h-[400px] ease-in-out duration-300"
             >
-              <div className="absolute bottom-4 rounded-3xl bg-gray-500 w-[80%] h-[82%]"></div>
-              <div className="absolute bottom-1 rounded-3xl bg-gray-300 w-[90%] h-[83%]"></div>
-              <div className="absolute -bottom-3 rounded-3xl bg-white w-[100%] h-[84%] property"></div>
-              <div className="absolute -bottom-3 rounded-3xl bg-white w-[100%] h-[84%] property1">
-                <Image
-                  className="rounded-3xl"
-                  src={project.imageUrl}
-                  alt="project1"
-                  layout="fill"
-                  objectFit="cover"
-                />
+              <div className="border-b border-gray-500">
+                <h1 className="text-white font-medium py-5 pl-5">
+                  {project.title}
+                </h1>
               </div>
-              <button
-                // onClick={handleModal}
-                onClick={() => {
-                  handleModal(project.id);
-                }}
-                className="absolute bg-button flex justify-center items-center ease-in-out duration-300 -bottom-5 -left-2 border-[12px] w-[94px] h-[94px] border-gray-800 bg-neutral-700 text-white rounded-full"
-              >
-                <FaArrowRight className="w-10 h-10" />
-              </button>
-            </motion.div>
-          </div>
+              <div className="relative flex justify-center items-center w-[100%] h-[80%]">
+                <div className="absolute bottom-4 rounded-3xl bg-gray-500 w-[80%] h-[82%]"></div>
+                <div className="absolute bottom-1 rounded-3xl bg-gray-300 w-[90%] h-[83%]"></div>
+                <div className="absolute -bottom-3 rounded-3xl bg-white w-[100%] h-[84%] property"></div>
+                <div className="absolute -bottom-3 rounded-3xl bg-white w-[100%] h-[84%] property1">
+                  <Image
+                    className="rounded-3xl"
+                    src={project.imageUrl}
+                    alt="project1"
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
+                <button
+                  onClick={() => {
+                    handleModal(project.id);
+                  }}
+                  className="absolute bg-button flex justify-center items-center ease-in-out duration-300 -bottom-5 -left-2 border-[12px] w-[94px] h-[94px] border-gray-800 bg-neutral-700 text-white rounded-full"
+                >
+                  <FaArrowRight className="w-10 h-10" />
+                </button>
+              </div>
+            </div>
           ))}
+          {/* Pagination */}
+        </div>
+        <div className="my-10">
+          <Pagination
+            currentPage={currentPage}
+            totalPages={Math.ceil(projects.length / projectsPerPage)}
+            onPageChange={paginate}
+          />
         </div>
       </section>
     </>

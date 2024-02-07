@@ -1,9 +1,3 @@
-// berisi kumpulan komponen array of object berisi icon dari react/icons
-/*
-cara penggunaan jika nanti fetch data berisi array of number. kenapa number karena nantinya number ini di gunakan untuk akses index berapa yang ada pada list komponen icon ini.
-contoh :
-
-*/
 import { BiLogoPostgresql } from "react-icons/bi";
 import {
   SiCss3,
