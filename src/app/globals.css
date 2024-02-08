@@ -17,27 +17,27 @@
 .property::before {
   content: "";
   position: absolute;
-  top: 120px;
-  left: -2px;
+  top: 162px;
+  left: -1px;
   background: transparent;
   width: 25px;
   height: 25px;
   z-index: 10;
-  border-bottom-left-radius: 20px;
-  box-shadow: -15px 9px rgb(31 41 55);
+  border-bottom-left-radius: 21px;
+  box-shadow: -13px 12px rgb(31 41 55);
 }
 
 .property1::before {
   content: "";
   position: absolute;
-  bottom: -2px;
-  left: 77px;
+  bottom: -1px;
+  left: 73px;
   background: transparent;
   width: 26px;
   height: 26px;
   z-index: 10;
   border-bottom-left-radius: 20px;
-  box-shadow: -14px 10px rgb(31 41 55);
+  box-shadow: -13px 9px rgb(31 41 55);
 }
 
 .decorationLogo::before {

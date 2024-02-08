@@ -13,8 +13,8 @@ const Pagination: React.FC<PaginationProps> = ({
   totalPages,
   onPageChange,
 }) => {
-  const paginationButtons = [];
-  for (let i = 0; i < totalPages; i++) {
+  const paginationButtons: any = [];
+  for (let i = 0; i < totalPages; i++) { // totalPages ini untuk memberikan jumlah button example -> 6/3 = 2, maka ada 2 li yang masuk kedalam paginationButtons
     paginationButtons.push(
       <li key={i} className="flex justify-center items-center">
         <motion.button

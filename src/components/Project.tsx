@@ -44,6 +44,10 @@ const Project = () => {
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
+  console.log(projects, "this is projects");
+
+  console.log(Math.ceil(projects.length / projectsPerPage));
+
   return (
     <>
       {isModal && (
@@ -67,12 +71,9 @@ const Project = () => {
         </div>
         <div className="grid grid-cols-3 m-12 gap-7 ">
           {currentProjects.map((project) => (
-            <div
-              key={project.id}
-              className="border border-gray-500 card-bg rounded-3xl w-[370px] h-[400px] ease-in-out duration-300"
-            >
+            <div className="border border-gray-500 card-bg rounded-3xl w-[370px] h-[385px] ease-in-out duration-300">
               <div className="border-b border-gray-500">
-                <h1 className="text-white font-medium py-5 pl-5">
+                <h1 className="text-white font-semibold py-5 pl-2">
                   {project.title}
                 </h1>
               </div>
@@ -93,7 +94,7 @@ const Project = () => {
                   onClick={() => {
                     handleModal(project.id);
                   }}
-                  className="absolute bg-button flex justify-center items-center ease-in-out duration-300 -bottom-5 -left-2 border-[12px] w-[94px] h-[94px] border-gray-800 bg-neutral-700 text-white rounded-full"
+                  className="absolute bg-button z-20 flex justify-center items-center ease-in-out duration-300 -bottom-5 -left-2 border-[12px] w-[94px] h-[94px] border-gray-800 bg-neutral-700 text-white rounded-full"
                 >
                   <FaArrowRight className="w-10 h-10" />
                 </button>
