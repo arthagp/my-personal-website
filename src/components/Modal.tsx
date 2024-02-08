@@ -65,6 +65,7 @@ const Modal = ({ isModal, type, certificateId, projectId }: ModalProps) => {
       <div className="fixed inset-0 flex items-center justify-center bg-gray-800 backdrop-blur-sm bg-opacity-75 z-50">
         <div className="bg-white rounded-lg overflow-hidden w-full max-w-2xl">
           <div className="relative h-[450px] w-full">
+            {/* set while loading show the loading shadow component */}
             {type === "certificate" ? (
               <Image
                 className="object-contain"
@@ -95,10 +96,13 @@ const Modal = ({ isModal, type, certificateId, projectId }: ModalProps) => {
           <div className="p-4 flex flex-col gap-1">
             {type === "certificate" ? (
               <>
+                {/* set while loading show the loading shadow component */}
                 <h1 className="font-bold text-2xl mb-2">
                   {certificate?.title}
                 </h1>
+                {/* set while loading show the loading shadow component */}
                 <p className="opacity-40 font-semibold">Certificate</p>
+                {/* set while loading show the loading shadow component */}
                 <p className="mb-4 text-sm">{certificate?.description}</p>
               </>
             ) : (

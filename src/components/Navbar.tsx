@@ -50,7 +50,7 @@ const Navbar = () => {
             <Link
               to="project"
               smooth={true}
-              offset={-90}
+              offset={-50}
               spy={true}
               activeClass="active"
               className="py-3 px-6"

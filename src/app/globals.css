@@ -61,10 +61,12 @@
   right: 9px;
 }
 
-.bg-project {
+/* .bg-project {
   background-image: url("../../public/property-1.png");
-  /* object-fit: cover; */
-}
+  background-repeat: no-repeat;
+} */
+
+/* bg di ganti menggunakan icon asli bukan img */
 
 .btnSeeAll:hover {
   background-color: rgb(31 41 55);

@@ -7,6 +7,7 @@ import { Portofolio } from "@/types/project";
 import Pagination from "./Pagination";
 import LoadProject from "./LoadProject";
 import LoadingBar from "react-top-loading-bar";
+import { motion } from "framer-motion";
 
 const Project: React.FC = () => {
   const type: string = "project";
@@ -20,12 +21,12 @@ const Project: React.FC = () => {
 
   const fetchAllProjects = async () => {
     try {
-      setProgress(30)
+      setProgress(30);
       const response = await fetch("/api/project");
       const { data } = await response.json();
       setProjects(data);
       setIsLoading(false);
-      setProgress(100)
+      setProgress(100);
     } catch (error) {
       console.log(error);
     }
@@ -80,7 +81,11 @@ const Project: React.FC = () => {
             </>
           ) : (
             currentProjects.map((project) => (
-              <div
+              <motion.div
+                initial={{ opacity: 0, scale: 0.7 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.2 }}
+                whileHover={{ scale: 1.05 }}
                 key={project.id}
                 className="border border-gray-500 card-bg rounded-3xl w-[370px] h-[385px] ease-in-out duration-300"
               >
@@ -111,7 +116,7 @@ const Project: React.FC = () => {
                     <FaArrowRight className="w-10 h-10" />
                   </button>
                 </div>
-              </div>
+              </motion.div>
             ))
           )}
           {/* Pagination */}
