@@ -6,9 +6,11 @@ import Modal from "./Modal";
 import { Certificate } from "../types/certificate";
 import Pagination from "./Pagination";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa6";
+import LoadCertificate from "./LoadCertificate";
 
 const Certificates = () => {
   const type: string = "certificate";
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isModal, setIsModal] = useState<boolean>(false);
   const [certificates, setCertificates] = useState<Certificate[]>([]);
   const [idCertificate, setIdCertificate] = useState<number>();
@@ -20,6 +22,7 @@ const Certificates = () => {
       const response = await fetch("/api/certificate");
       const { data } = await response.json();
       setCertificates(data);
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -65,33 +68,41 @@ const Certificates = () => {
         </motion.button>
       </div>
       <div className="grid grid-cols-3 m-12 gap-7">
-        {currentCertificates.map((certificate) => (
-          <motion.div
-            key={certificate.id}
-            className="relative card bg-gradient-to-r from-black rounded-3xl w-[400px] h-[290px]"
-            whileHover={{ scale: 1.05 }}
-          >
-            <Image
-              className="rounded-3xl opacity-80 object-cover"
-              src={certificate.imageUrl}
-              alt="dicodingFe"
-              fill={true}
-              layout="fill"
-            />
-            <button
-              onClick={() => handleModal(certificate.id)}
-              className="absolute btnArrow text-orange-400 transition duration-300 hover:text-white right-4 top-4 hover:bg-orange-400 hover:border-none border-orange-300 border rounded-full w-9 h-9 flex justify-center items-center"
+        {isLoading ? (
+          <>
+            <LoadCertificate />
+            <LoadCertificate />
+            <LoadCertificate />
+          </>
+        ) : (
+          currentCertificates.map((certificate) => (
+            <motion.div
+              key={certificate.id}
+              className="relative card bg-gradient-to-r from-black rounded-3xl w-[400px] h-[290px]"
+              whileHover={{ scale: 1.05 }}
             >
-              <FaArrowRight className="arrow-icon" />
-            </button>
-            <div className="bg-gradient-to-r rounded-3xl from-gray-800 absolute w-[80%] h-[80px] opacity-55 bottom-0"></div>
-            <div className="absolute bottom-1 my-4 ml-2">
-              <h1 className="font-bold text-lg text-white">
-                {certificate.title}
-              </h1>
-            </div>
-          </motion.div>
-        ))}
+              <Image
+                className="rounded-3xl opacity-80 object-cover"
+                src={certificate.imageUrl}
+                alt="dicodingFe"
+                fill={true}
+                layout="fill"
+              />
+              <button
+                onClick={() => handleModal(certificate.id)}
+                className="absolute btnArrow text-orange-400 transition duration-300 hover:text-white right-4 top-4 hover:bg-orange-400 hover:border-none border-orange-300 border rounded-full w-9 h-9 flex justify-center items-center"
+              >
+                <FaArrowRight className="arrow-icon" />
+              </button>
+              <div className="bg-gradient-to-r rounded-3xl from-gray-800 absolute w-[80%] h-[80px] opacity-55 bottom-0"></div>
+              <div className="absolute bottom-1 my-4 ml-2">
+                <h1 className="font-bold text-lg text-white">
+                  {certificate.title}
+                </h1>
+              </div>
+            </motion.div>
+          ))
+        )}
       </div>
       {/* Pagination */}
       <Pagination

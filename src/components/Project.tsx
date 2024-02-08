@@ -1,16 +1,18 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import dummyProject from "../../public/dummy-project.png";
-import { motion } from "framer-motion";
-import { FaArrowRight } from "react-icons/fa6";
+import { FaArrowRight } from "react-icons/fa";
 import Modal from "./Modal";
 import { Portofolio } from "@/types/project";
 import Pagination from "./Pagination";
+import LoadProject from "./LoadProject";
+import LoadingBar from "react-top-loading-bar";
 
-const Project = () => {
+const Project: React.FC = () => {
   const type: string = "project";
-  const [isModal, setIsModal] = useState<Boolean>(false);
+  const [progress, setProgress] = useState<number>(0);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isModal, setIsModal] = useState<boolean>(false);
   const [projects, setProjects] = useState<Portofolio[]>([]);
   const [idProject, setIdProject] = useState<number>();
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -18,9 +20,12 @@ const Project = () => {
 
   const fetchAllProjects = async () => {
     try {
+      setProgress(30)
       const response = await fetch("/api/project");
       const { data } = await response.json();
       setProjects(data);
+      setIsLoading(false);
+      setProgress(100)
     } catch (error) {
       console.log(error);
     }
@@ -44,12 +49,9 @@ const Project = () => {
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
-  console.log(projects, "this is projects");
-
-  console.log(Math.ceil(projects.length / projectsPerPage));
-
   return (
     <>
+      <LoadingBar color="#f11946" progress={progress} />
       {isModal && (
         <Modal projectId={idProject} isModal={setIsModal} type={type} />
       )}
@@ -70,37 +72,48 @@ const Project = () => {
           </p>
         </div>
         <div className="grid grid-cols-3 m-12 gap-7 ">
-          {currentProjects.map((project) => (
-            <div className="border border-gray-500 card-bg rounded-3xl w-[370px] h-[385px] ease-in-out duration-300">
-              <div className="border-b border-gray-500">
-                <h1 className="text-white font-semibold py-5 pl-2">
-                  {project.title}
-                </h1>
-              </div>
-              <div className="relative flex justify-center items-center w-[100%] h-[80%]">
-                <div className="absolute bottom-4 rounded-3xl bg-gray-500 w-[80%] h-[82%]"></div>
-                <div className="absolute bottom-1 rounded-3xl bg-gray-300 w-[90%] h-[83%]"></div>
-                <div className="absolute -bottom-3 rounded-3xl bg-white w-[100%] h-[84%] property"></div>
-                <div className="absolute -bottom-3 rounded-3xl bg-white w-[100%] h-[84%] property1">
-                  <Image
-                    className="rounded-3xl"
-                    src={project.imageUrl}
-                    alt="project1"
-                    layout="fill"
-                    objectFit="cover"
-                  />
+          {isLoading ? (
+            <>
+              <LoadProject />
+              <LoadProject />
+              <LoadProject />
+            </>
+          ) : (
+            currentProjects.map((project) => (
+              <div
+                key={project.id}
+                className="border border-gray-500 card-bg rounded-3xl w-[370px] h-[385px] ease-in-out duration-300"
+              >
+                <div className="border-b border-gray-500">
+                  <h1 className="text-white font-semibold py-5 pl-2">
+                    {project.title}
+                  </h1>
                 </div>
-                <button
-                  onClick={() => {
-                    handleModal(project.id);
-                  }}
-                  className="absolute bg-button z-20 flex justify-center items-center ease-in-out duration-300 -bottom-5 -left-2 border-[12px] w-[94px] h-[94px] border-gray-800 bg-neutral-700 text-white rounded-full"
-                >
-                  <FaArrowRight className="w-10 h-10" />
-                </button>
+                <div className="relative flex justify-center items-center w-[100%] h-[80%]">
+                  <div className="absolute bottom-4 rounded-3xl bg-gray-500 w-[80%] h-[82%]"></div>
+                  <div className="absolute bottom-1 rounded-3xl bg-gray-300 w-[90%] h-[83%]"></div>
+                  <div className="absolute -bottom-3 rounded-3xl bg-white w-[100%] h-[84%] property"></div>
+                  <div className="absolute -bottom-3 rounded-3xl bg-white w-[100%] h-[84%] property1">
+                    <Image
+                      className="rounded-3xl"
+                      src={project.imageUrl}
+                      alt="project1"
+                      layout="fill"
+                      objectFit="cover"
+                    />
+                  </div>
+                  <button
+                    onClick={() => {
+                      handleModal(project.id);
+                    }}
+                    className="absolute bg-button z-20 flex justify-center items-center ease-in-out duration-300 -bottom-5 -left-2 border-[12px] w-[94px] h-[94px] border-gray-800 bg-neutral-700 text-white rounded-full"
+                  >
+                    <FaArrowRight className="w-10 h-10" />
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          )}
           {/* Pagination */}
         </div>
         <div className="my-10">

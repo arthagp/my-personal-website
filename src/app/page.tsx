@@ -1,6 +1,7 @@
+"use client";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Services from "@/components/Project";
+import Project from "@/components/Project";
 import Experience from "@/components/Experience";
 import About from "@/components/About";
 import Certificates from "@/components/Certificates";
@@ -13,7 +14,7 @@ export default function Home() {
     <div className="flex justify-center items-center flex-col">
       <Navbar />
       <Hero />
-      <Services />
+      <Project />
       <Experience />
       <About />
       <Certificates />

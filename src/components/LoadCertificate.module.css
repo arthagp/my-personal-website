@@ -1,0 +1,37 @@
+.loadCertificateContainer {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 290px;
+  background-color: rgb(152, 152, 152);
+  border: 1px solid #5d5d5d;
+  border-radius: 15px;
+  animation: pulse 1s infinite alternate;
+}
+
+.loadCertificateBox {
+  margin: 25px 25px;
+  background-color: rgb(213, 213, 213);
+  width: 150px;
+  height: 10px;
+  opacity: 0.5;
+  border-radius: 10px;
+}
+
+.contentCertificate {
+  border-top: 1px solid #333;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(213, 213, 213);
+  border-radius: 0px 0px 15px 15px;
+  opacity: 0.5;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}

@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 
 const Navbar = () => {
-  //TODO : membuat scrollY menjadi hook useState, ini untuk menyimpan perubahan yang ada, jadi ketika handleScroll ke trigger maka action active
   const [scrollY, setScrollY] = useState<number>(0);
 
   useEffect(() => {
@@ -12,10 +11,8 @@ const Navbar = () => {
       setScrollY(window.scrollY);
     };
 
-    // memanggil fungsi handleScroll ketika event scroll
     document.addEventListener("scroll", handleScroll);
 
-    // Membersihkan event listener saat komponen unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
