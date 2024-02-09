@@ -3,7 +3,7 @@ import Image from "next/image";
 import labelMail from "../../public/labelMail.png";
 import banner from "../../public/motionBanner.png";
 
-const Contact = () => {
+const Contact: React.FC = () => {
   return (
     <section
       id="contact"

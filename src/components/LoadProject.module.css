@@ -1,4 +1,4 @@
-.loadProjectContainer {
+.load-poject-container {
   display: flex;
   flex-direction: column;
   width: 370px;
@@ -9,7 +9,7 @@
   animation: pulse 1s infinite alternate;
 }
 
-.loadProjectBox {
+.load-project-box {
   margin: 25px 25px;
   background-color: rgb(213, 213, 213);
   width: 150px;
@@ -18,7 +18,7 @@
   border-radius: 10px;
 }
 
-.contentProject {
+.content-project {
   border-top: 1px solid #333;
   height: 100%;
   width: 100%;

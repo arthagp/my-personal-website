@@ -1,11 +1,11 @@
 import React from "react";
 import classes from "./LoadProject.module.css";
 
-const LoadProject = () => {
+const LoadProject: React.FC = () => {
   return (
-    <div className={classes.loadProjectContainer}>
-      <div className={classes.loadProjectBox}></div>
-      <div className={classes.contentProject}></div>
+    <div className={classes["load-poject-container"]}>
+      <div className={classes["load-project-box"]}></div>
+      <div className={classes["content-project"]}></div>
     </div>
   );
 };

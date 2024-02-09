@@ -1,4 +1,4 @@
-.loadCertificateContainer {
+.load-certificate-container {
   display: flex;
   flex-direction: column;
   width: 400px;
@@ -9,7 +9,7 @@
   animation: pulse 1s infinite alternate;
 }
 
-.loadCertificateBox {
+.load-certificate-box {
   margin: 25px 25px;
   background-color: rgb(213, 213, 213);
   width: 150px;
@@ -18,7 +18,7 @@
   border-radius: 10px;
 }
 
-.contentCertificate {
+.content-certificate {
   border-top: 1px solid #333;
   height: 100%;
   width: 100%;

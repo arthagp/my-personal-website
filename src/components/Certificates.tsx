@@ -8,7 +8,7 @@ import Pagination from "./Pagination";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa6";
 import LoadCertificate from "./LoadCertificate";
 
-const Certificates = () => {
+const Certificates: React.FC = () => {
   const type: string = "certificate";
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isModal, setIsModal] = useState<boolean>(false);

@@ -9,7 +9,7 @@ import {
   FaFacebookSquare,
 } from "react-icons/fa";
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <div className="rounded-t-3xl bg-neutral-800 w-full text-white mt-16">
       <div className="m-16 flex flex-col justify-center items-center">
@@ -32,7 +32,7 @@ const Footer = () => {
                 ARTHA G.P
               </h1>
             </div>
-            <p className="opacity-70 text-sm font-medium">
+            <p className="opacity-70 text-sm font-medium w-[80%]">
               I specialize in front-end development, with a strong focus on
               React. My expertise in React ranges from intermediate to expert
               level. Beyond coding, I'm deeply passionate about crafting

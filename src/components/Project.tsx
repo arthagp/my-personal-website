@@ -21,7 +21,7 @@ const Project: React.FC = () => {
 
   const fetchAllProjects = async () => {
     try {
-      setProgress(30);
+      setProgress(35);
       const response = await fetch("/api/project");
       const { data } = await response.json();
       setProjects(data);
@@ -100,7 +100,7 @@ const Project: React.FC = () => {
                   <div className="absolute -bottom-3 rounded-3xl bg-white w-[100%] h-[84%] property"></div>
                   <div className="absolute -bottom-3 rounded-3xl bg-white w-[100%] h-[84%] property1">
                     <Image
-                      className="rounded-3xl"
+                      className="rounded-3xl opacity-90"
                       src={project.imageUrl}
                       alt="project1"
                       layout="fill"

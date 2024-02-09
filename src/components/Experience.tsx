@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Experiences } from "../types/experience";
 import { convertDate, countMonths } from "@/helpers";
 
-const Experience = () => {
+const Experience: React.FC = () => {
   const [experiences, setExperiences] = useState<Experiences[]>([]);
 
   const fetchExperience = async () => {

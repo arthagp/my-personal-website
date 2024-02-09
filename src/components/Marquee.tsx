@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { FaStar } from "react-icons/fa6";
 import gsap from "gsap";
 
-const Marquee = () => {
+const Marquee: React.FC = () => {
   useEffect(() => {
     let currentScroll = 0;
     let isScrollingDown = true;
