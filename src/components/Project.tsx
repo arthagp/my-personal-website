@@ -72,7 +72,7 @@ const Project: React.FC = () => {
             creativity. Explore the possibilities!
           </p>
         </div>
-        <div className="grid grid-cols-3 m-12 gap-7 ">
+        <div className="flex justify-start items-center gap-12">
           {isLoading ? (
             <>
               <LoadProject />

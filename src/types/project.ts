@@ -1,10 +1,11 @@
 export interface Portofolio {
   id: number;
-  title: string;
+  title: string | undefined;
   type: string;
   description: string;
   imageUrl: string;
-  urlRepositoryL: string;
-  urlDeployment: string;
-  techStack: number[]
+  urlRepository: string | undefined;
+  urlDeployment: string | undefined;
+  urlRepoServerSide: string | undefined;
+  techStack: number[];
 }

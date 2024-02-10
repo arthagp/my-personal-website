@@ -2,13 +2,14 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import dummyImg from "../../public/dummy-img.png";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaLink } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import { Certificate } from "../types/certificate";
 import { Portofolio } from "@/types/project";
 import { STACKS } from "../common/stacks";
 import LoadingBar from "react-top-loading-bar";
 import { motion } from "framer-motion";
+import Link from "next/link";
 interface ModalProps {
   isModal: (isOpen: boolean) => void;
   type: string;
@@ -75,15 +76,15 @@ const Modal: React.FC<ModalProps> = ({
         <>
           <div
             onClick={handleCloseModal}
-            className="fixed inset-0  flex items-center justify-center bg-gray-800 backdrop-blur-sm bg-opacity-75 z-50"
+            className="fixed inset-0 flex items-center justify-center bg-gray-800 backdrop-blur-sm bg-opacity-75 z-50"
           ></div>
           <motion.div
-            initial={{ opacity: 0, scale: 0.7, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 20 }}
+            initial={{ opacity: 0, scale: 0.7, y: 6 }}
+            animate={{ opacity: 1, scale: 1, y: 6 }} // y pengaruh terhadap vertikal view
             transition={{ duration: 0.5 }}
-            className="fixed inset-0 flex translate-y-5 flex-col items-center justify-center mx-auto h-[95vh] max-w-2xl z-50 rounded-2xl overflow-hidden"
+            className="fixed inset-0 flex flex-col bg-white items-center justify-center mx-auto h-[98vh] max-w-2xl z-50 rounded-2xl overflow-auto"
           >
-            <div className="relative h-full w-full bg-white rounded-t-2xl">
+            <div className="relative h-[60%] w-full">
               {type === "certificate" ? (
                 <Image
                   className="object-contain"
@@ -101,16 +102,16 @@ const Modal: React.FC<ModalProps> = ({
                   fill={true}
                 />
               )}
-              <div className="absolute top-0 left-0 m-4">
+              <div className="absolute top-0 left-0 inset-0 m-4">
                 <button
-                  className="text-gray-700 hover:text-gray-900 focus:outline-none w-8 h-8"
+                  className="text-gray-800 hover:text-red-500 focus:outline-none w-8 h-8"
                   onClick={handleCloseModal}
                 >
                   <IoMdClose className="w-full h-full" />
                 </button>
               </div>
             </div>
-            <div className="p-4 flex flex-col gap-2 bg-white w-full h-64 rounded-b-2xl">
+            <div className="p-4 flex flex-col gap-1 w-full h-[40%]">
               {type === "certificate" ? (
                 <>
                   <h1 className="font-bold text-2xl mb-2">
@@ -131,21 +132,60 @@ const Modal: React.FC<ModalProps> = ({
                   </span>
                 </>
               )}
-              {type === "certificate" ? (
+            </div>
+            <div className="flex p-4 justify-between w-full items-center">
+              {type === "certificate" && certificate?.urlCertificate && (
                 <div className="flex justify-end">
-                  <button className="text-sm px-3 py-1 font-medium bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none">
-                    Download Certificate
-                  </button>
+                  <Link
+                    href={certificate.urlCertificate}
+                    target="_blank"
+                    className="text-sm px-3 py-1 flex gap-3 items-center font-medium bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none"
+                  >
+                    <FaLink />
+                    See Certificate
+                  </Link>
                 </div>
-              ) : null}
-              {type === "project" ? (
+              )}
+              {type === "project" && projects?.urlDeployment && (
                 <div className="flex justify-end">
-                  <button className="text-sm px-3 py-1 flex justify-center items-center gap-3 font-medium bg-gray-800 text-white rounded-lg hover:bg-gray-600 focus:outline-none">
-                    <FaGithub />
-                    Github Repository
-                  </button>
+                  <Link
+                    href={projects.urlDeployment}
+                    target="_blank"
+                    className="text-sm px-3 py-1 flex justify-center items-center gap-3 font-medium bg-blue-400 text-white rounded-lg hover:bg-blue-500 focus:outline-none"
+                  >
+                    <FaLink />
+                    Preview
+                  </Link>
                 </div>
-              ) : null}
+              )}
+              <div className="flex flex-col gap-2">
+                {type === "project" && projects?.urlRepository && (
+                  <div className="flex">
+                    {
+                      <Link
+                        href={projects.urlRepository}
+                        target="_blank"
+                        className="text-sm px-3 py-1 flex justify-center items-center gap-3 font-medium bg-gray-800 text-white rounded-lg hover:bg-gray-600 focus:outline-none"
+                      >
+                        <FaGithub />
+                        Github Repository
+                      </Link>
+                    }
+                  </div>
+                )}
+                {type === "project" && projects?.urlRepoServerSide && (
+                  <div className="flex">
+                    <Link
+                      href={projects.urlRepoServerSide}
+                      target="_blank"
+                      className="text-sm px-3 py-1 flex justify-center items-center gap-3 font-medium bg-gray-800 text-white rounded-lg hover:bg-gray-600 focus:outline-none"
+                    >
+                      <FaGithub />
+                      Repository BackEnd
+                    </Link>
+                  </div>
+                )}
+              </div>
             </div>
           </motion.div>
         </>

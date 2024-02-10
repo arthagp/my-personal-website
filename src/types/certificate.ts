@@ -1,8 +1,8 @@
 export interface Certificate {
   id: number;
-  title: string;
+  title: string | undefined;
   type: string;
   description: string;
-  imageUrl: string;
-  urlCertificate: string;
+  imageUrl: string | undefined;
+  urlCertificate: string | undefined;
 }

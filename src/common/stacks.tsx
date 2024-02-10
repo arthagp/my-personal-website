@@ -43,4 +43,5 @@ export const STACKS: JSX.Element[] = [
   <SiReactrouter />, //16. ReactRouter
   <SiTypescript />, //17. Typescript
   <SiFramer />, //18. Framer
+  <SiVite/>, // 19, Vite
 ];
