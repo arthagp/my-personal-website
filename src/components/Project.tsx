@@ -105,6 +105,9 @@ const Project: React.FC = () => {
                       alt="project1"
                       layout="fill"
                       objectFit="cover"
+                      priority
+                      placeholder="blur"
+                      blurDataURL={project.imageUrl}
                     />
                   </div>
                   <button

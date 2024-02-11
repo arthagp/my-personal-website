@@ -82,13 +82,19 @@ const Certificates: React.FC = () => {
               className="relative card bg-gradient-to-r from-black rounded-3xl w-[400px] h-[290px]"
               whileHover={{ scale: 1.05 }}
             >
-              <Image
-                className="rounded-3xl opacity-80 object-cover"
-                src={certificate?.imageUrl || dicodingFe}
-                alt="dicodingFe"
-                fill={true}
-                layout="fill"
-              />
+              {certificate?.imageUrl &&
+                (certificate?.title && (
+                  <Image
+                    className="rounded-3xl opacity-80 object-cover"
+                    src={certificate.imageUrl}
+                    alt={certificate.title}
+                    fill={true}
+                    layout="fill"
+                    priority
+                    placeholder="blur"
+                    blurDataURL={certificate.imageUrl}
+                  />
+                ))}
               <button
                 onClick={() => handleModal(certificate.id)}
                 className="absolute btnArrow text-orange-400 transition duration-300 hover:text-white right-4 top-4 hover:bg-orange-400 hover:border-none border-orange-300 border rounded-full w-9 h-9 flex justify-center items-center"
