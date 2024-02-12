@@ -10,7 +10,7 @@ const Contact: React.FC = () => {
       className="flex flex-col justify-center items-center gap-16 my-20"
     >
       <div>
-        <h1 className="text-5xl font-semibold text-center">
+        <h1 className="text-5xl max-sm:text-4xl font-semibold text-center">
           Have an Awesome Project <br /> Idea?{" "}
           <span className="text-orange-400">Let’s Discuss</span>
         </h1>

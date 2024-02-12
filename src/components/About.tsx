@@ -22,23 +22,26 @@ import vscodeIcon from "../../public/icons/vs.svg";
 
 const About = () => {
   return (
-    <section id="about" className="bg-gray-700 w-full">
-      <div className="m-16 flex justify-around items-center">
+    <section id="about" className="bg-gray-700 w-full max-sm:h-[1000px]">
+      <div className="m-16 flex max-sm:flex-col justify-around items-center">
         <div className="relative flex justify-center items-center w-[50%] translate-y-60">
-          <div className="absolute bottom-0 bg-orange-400 rounded-4xl w-[350px] h-[350px] "></div>
+          <div className="absolute bottom-0 bg-orange-400 rounded-4xl lg:w-[350px] lg:h-[350px] max-sm:w-[250px] max-sm:h-[250px]"></div>
           <Image
             className="absolute bottom-0 z-10 -translate-x-3"
             src={myPhoto}
             alt="my-photo"
-            width={450}
-            height={450}
+            width={400}
+            height={400}
           />
         </div>
-        <div className="max-w-[650px] flex flex-col justify-center gap-y-5">
+        <div className="relative max-w-[650px] flex flex-col justify-center gap-y-5 z-20 max-sm:translate-y-5">
           <h1 className="font-semibold text-4xl text-white">
-            About <span className="text-orange-400">me.</span>
+            About{" "}
+            <span className="text-orange-400 max-sm:bg-gray-600 max-sm:rounded-lg">
+              me.
+            </span>
           </h1>
-          <p className="opacity-70 font-light text-white">
+          <p className="opacity-70 font-light text-white max-sm:translate-y-44">
             I am a full-stack developer, but I lean more towards front-end
             development. My preferred tech stack revolves around React, making
             my React skills intermediate to expert level. Beyond just writing
@@ -46,7 +49,7 @@ const About = () => {
             experiences. This is my journey in creating dynamic and innovative
             interfaces that seamlessly interact with users.
           </p>
-          <div className="flex justify-around justify-items-start text-white">
+          <div className="flex justify-around justify-items-start text-white max-sm:translate-y-44">
             {/* untuk my tech stack */}
             <div className="flex flex-col items-center gap-y-4">
               <h4>My Tech Stack</h4>

@@ -26,8 +26,6 @@ const Experience: React.FC = () => {
     return null;
   }
 
-  // const dateTime = new Date();
-  // console.log(dateTime);
   return (
     <section
       id="experience"
@@ -38,14 +36,14 @@ const Experience: React.FC = () => {
           My <span className="text-orange-400">Work Experiences</span>
         </h1>
       </div>
-      <div className="flex flex-col justify-center items-center gap-12">
+      <div className="flex flex-col justify-center items-center gap-12 lg:max-w-[1200px]">
         {experiences.map((experience, index) => (
           <div
             key={index}
-            className="relative flex flex-col justify-center items-center h-[200px]"
+            className="relative flex flex-col justify-center items-center lg:h-52"
           >
-            <div className="flex justify-between items-center w-[1200px]">
-              <div className="w-[25%]">
+            <div className="flex justify-between items-center max-sm:justify-center max-sm:text-center">
+              <div className="lg:max-w-[25%] max-sm:max-w-[400px]">
                 <h1 className="text-xl font font-semibold">
                   at {experience.companyName}, {experience.place || "Indonesia"}
                 </h1>
@@ -59,14 +57,12 @@ const Experience: React.FC = () => {
                   months
                 </p>
               </div>
-              <div>
-                <div
-                  className={`${
-                    index % 2 === 0 ? "bg-orange-400" : "bg-black"
-                  } outline-[2px] outline-dashed border-2 rounded-full w-8 h-8`}
-                ></div>
-              </div>
-              <div className="w-[25%]">
+              <div
+                className={`${
+                  index % 2 === 0 ? "bg-orange-400" : "bg-black"
+                } outline-[2px] outline-dashed border-2 rounded-full w-8 h-8 max-sm:hidden`}
+              ></div>
+              <div className="lg:max-w-[25%] max-sm:hidden">
                 <h1 className="text-xl font font-semibold">
                   {experience.role}
                 </h1>

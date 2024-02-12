@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
     >
       {/*  */}
       <motion.div
-        className="absolute bottom-24 left-28 w-52"
+        className="absolute bottom-24 left-28 w-52 max-sm:hidden"
         initial={{ y: 0 }}
         animate={{
           y: isPhotoHover ? -200 : 0,
@@ -55,7 +55,7 @@ const Hero: React.FC = () => {
           </h4>
         </div>
         <div className="relative max-w-[1200px] my-5">
-          <h1 className="font-bold text-7xl text-center">
+          <h1 className="font-bold text-7xl max-sm:text-3xl text-center">
             I'm <span className="text-orange-400">Artha</span>, <br /> Front End
             Developer
           </h1>
@@ -66,7 +66,7 @@ const Hero: React.FC = () => {
       </motion.div>
       {/* pass */}
       <motion.div
-        className="absolute bottom-36 right-28"
+        className="absolute bottom-36 right-28 max-sm:hidden"
         initial={{ y: 0 }}
         animate={{
           y: isPhotoHover ? -200 : 0,
@@ -86,7 +86,7 @@ const Hero: React.FC = () => {
       <div className="absolute top-36 z-10">
         <div className="relative flex flex-col justify-center items-center">
           {/* berisi my photo */}
-          <span className="absolute bg-orange-400 top-24 rounded-full w-[550px] h-[550px]"></span>
+          <span className="absolute bg-orange-400 top-24 rounded-full lg:w-[550px] lg:h-[550px] max-sm:w-[400px] max-sm:h-[400px]"></span>
           <motion.span
             initial={{ y: 0 }}
             animate={{
@@ -98,7 +98,7 @@ const Hero: React.FC = () => {
               isPhotoHover
                 ? "opacity-100 transition-opacity duration-500"
                 : "opacity-0"
-            } absolute -top-16 w-[650px] h-[650px]`}
+            } absolute -top-16 w-[650px] h-[650px] max-sm:hidden`}
           >
             <Image src={bgHeroDraw} alt="bg-heroo" />
           </motion.span>

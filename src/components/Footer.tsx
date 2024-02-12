@@ -12,10 +12,10 @@ import {
 const Footer: React.FC = () => {
   return (
     <div className="rounded-t-3xl bg-neutral-800 w-full text-white mt-16">
-      <div className="m-16 flex flex-col justify-center items-center">
+      <div className="lg:m-16 max-sm:m-8 flex flex-col justify-center items-center">
         <div className="flex justify-between w-full items-center m-4">
           <h1 className="text-4xl font-semibold">Lets Connect There</h1>
-          <button className="bg-orange-400 rounded-3xl py-2 px-4 font-semibold flex justify-center items-center gap-2">
+          <button className="bg-orange-400 max-sm:text-sm  rounded-3xl py-2 px-4 font-semibold flex justify-center items-center gap-2">
             Contact me{" "}
             <span>
               <Image src={btnContactMe} alt="btn-arrow" width={20} />
@@ -25,8 +25,8 @@ const Footer: React.FC = () => {
         {/* horizontal line */}
         <div className="w-full h-[1px] bg-gray-400 mt-16"></div>
         {/* horizontal line */}
-        <div className="w-full my-6 flex justify-between items-center">
-          <div className="w-[50%] flex flex-col gap-y-4">
+        <div className="w-full my-6 flex max-sm:flex-col max-sm:gap-y-4 justify-between items-center">
+          <div className="w-[50%] max-sm:w-full flex flex-col gap-y-4">
             <div className="relative flex justify-start items-center h-12 w-[150px]">
               <h1 className="z-10 decorationLogo text-white font-bold text-2xl">
                 ARTHA G.P
@@ -47,8 +47,8 @@ const Footer: React.FC = () => {
               <FaFacebookSquare color="white" size="1.5em" />
             </div>
           </div>
-          <div className="w-[50%] flex gap-x-10">
-            <div>
+          <div className="w-[50%] flex justify-center items-center gap-x-10">
+            <div className="max-sm:hidden">
               <h1 className="font-semibold text-lg text-orange-400">
                 Navigation
               </h1>
@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
                 <li>Contact</li>
               </ul>
             </div>
-            <div>
+            <div className="max-sm:hidden">
               <h1 className="font-semibold text-lg text-orange-400">Contact</h1>
               <ul className="opacity-90 space-y-1 my-3">
                 <li>+62 83848762736</li>
@@ -90,9 +90,11 @@ const Footer: React.FC = () => {
         {/* horizontal line */}
         <div className="w-full h-[1px] bg-gray-400 mt-2"></div>
         {/* horizontal line */}
-        <div className="w-full -mb-12 mt-10 opacity-90 flex justify-between items-center font-light">
+        <div className="w-full lg:-mb-12 lg:mt-10 max-sm:mt-2 opacity-90 flex justify-between items-center font-light">
           <p>Copyright&copy; Artha Gusfi P . 2024</p>
-          <p>Reference Design by Figma : Jayesh Patil</p>
+          <p className="max-sm:hidden">
+            Reference Design by Figma : Jayesh Patil
+          </p>
         </div>
       </div>
     </div>

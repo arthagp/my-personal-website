@@ -60,19 +60,19 @@ const Project: React.FC = () => {
         id="project"
         className="z-10 rounded-3xl flex flex-col justify-center bg-gray-800 mt-7 items-center w-[100%] bg-project"
       >
-        <div className="flex justify-between items-center w-[90%] my-16">
-          <h1 className="text-4xl font-semibold text-white">
+        <div className="flex max-sm:flex-col justify-between w-[90%] my-16 gap-y-3">
+          <h1 className="text-4xl max-sm:flex-col font-semibold text-white justify-start">
             Lets have a look at <br /> my{" "}
             <span className="text-orange-400">Project</span>
           </h1>
-          <p className="text-white max-w-[550px] text-justify">
+          <p className="text-white max-w-[550px] text-justify max-sm:text-sm">
             Check out my diverse portfolio of self-built projects! From
             full-stack applications to captivating landing pages and stunning
             front-end websites, each project showcases my unique skills and
             creativity. Explore the possibilities!
           </p>
         </div>
-        <div className="flex justify-start items-center gap-12">
+        <div className="flex max-sm:flex-col justify-start items-center gap-12">
           {isLoading ? (
             <>
               <LoadProject />

@@ -50,25 +50,25 @@ const Certificates: React.FC = () => {
   return (
     <motion.section
       id="certificate"
-      className="flex flex-col justify-center items-center my-20"
+      className="flex flex-col justify-center items-center my-20 w-full"
     >
       {isModal && (
         <Modal certificateId={idCertificate} isModal={setIsModal} type={type} />
       )}
-      <div className="flex justify-between items-center w-[1200px]">
+      <div className="flex max-sm:flex-col justify-between items-center">
         <h1 className="text-4xl font-semibold">
           Lets have a look at <br /> my{" "}
           <span className="text-orange-400">Certificate</span>
         </h1>
         <motion.button
-          className="bg-orange-400 rounded-4xl py-[5px] px-5 text-white font-semibold hover:bg-black"
+          className="bg-orange-400 rounded-4xl py-[5px] px-5 text-white font-semibold hover:bg-black max-sm:hidden"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
           See All
         </motion.button>
       </div>
-      <div className="grid grid-cols-3 m-12 gap-7">
+      <div className="flex max-sm:flex-col m-12 gap-7">
         {isLoading ? (
           <>
             <LoadCertificate />
@@ -79,22 +79,21 @@ const Certificates: React.FC = () => {
           currentCertificates.map((certificate) => (
             <motion.div
               key={certificate.id}
-              className="relative card bg-gradient-to-r from-black rounded-3xl w-[400px] h-[290px]"
+              className="relative card bg-gradient-to-r from-black rounded-3xl lg:w-[400px] lg:h-[290px] max-sm:w-[390px] max-sm:h-[286px]"
               whileHover={{ scale: 1.05 }}
             >
-              {certificate?.imageUrl &&
-                (certificate?.title && (
-                  <Image
-                    className="rounded-3xl opacity-80 object-cover"
-                    src={certificate.imageUrl}
-                    alt={certificate.title}
-                    fill={true}
-                    layout="fill"
-                    priority
-                    placeholder="blur"
-                    blurDataURL={certificate.imageUrl}
-                  />
-                ))}
+              {certificate?.imageUrl && certificate?.title && (
+                <Image
+                  className="rounded-3xl opacity-80 object-cover"
+                  src={certificate.imageUrl}
+                  alt={certificate.title}
+                  fill={true}
+                  layout="fill"
+                  priority
+                  placeholder="blur"
+                  blurDataURL={certificate.imageUrl}
+                />
+              )}
               <button
                 onClick={() => handleModal(certificate.id)}
                 className="absolute btnArrow text-orange-400 transition duration-300 hover:text-white right-4 top-4 hover:bg-orange-400 hover:border-none border-orange-300 border rounded-full w-9 h-9 flex justify-center items-center"
