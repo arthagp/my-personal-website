@@ -56,7 +56,7 @@ const Certificates: React.FC = () => {
         <Modal certificateId={idCertificate} isModal={setIsModal} type={type} />
       )}
       <div className="flex max-sm:flex-col justify-between lg:max-w-[1200px] items-center w-full">
-        <h1 className="text-4xl font-semibold">
+        <h1 className="text-4xl max-sm:text-3xl font-semibold">
           Lets have a look at <br /> my{" "}
           <span className="text-orange-400">Certificate</span>
         </h1>

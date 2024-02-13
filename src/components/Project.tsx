@@ -61,7 +61,7 @@ const Project: React.FC = () => {
         className="z-10 rounded-3xl flex flex-col justify-center bg-gray-800 mt-7 items-center w-[100%] bg-project max-sm:overflow-hidden"
       >
         <div className="flex max-sm:flex-col max-sm:p-4 justify-between w-[90%] my-16 gap-y-5">
-          <h1 className="text-4xl max-sm:flex-col font-semibold text-white justify-start">
+          <h1 className="text-4xl max-sm:text-3xl max-sm:flex-col font-semibold text-white justify-start">
             Lets have a look at <br /> my{" "}
             <span className="text-orange-400">Project</span>
           </h1>

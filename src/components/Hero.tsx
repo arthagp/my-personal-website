@@ -55,11 +55,11 @@ const Hero: React.FC = () => {
           </h4>
         </div>
         <div className="relative max-w-[1200px] my-5">
-          <h1 className="font-bold text-7xl max-sm:text-4xl text-center">
+          <h1 className="font-bold text-7xl max-sm:text-3xl text-center">
             I'm <span className="text-orange-400">Artha</span>, <br /> Front End
             Developer
           </h1>
-          <span className="absolute flex -bottom-10 -left-14 lg:w-[55px] lg:h-[55px] max-sm:w-[45px] max-sm:h-[45px]">
+          <span className="absolute flex -bottom-10 -left-14 max-sm:-left-4 lg:w-[55px] lg:h-[55px] max-sm:w-[45px] max-sm:h-[45px]">
             <Image src={vector2} alt="vector-2" fill />
           </span>
         </div>
@@ -86,7 +86,7 @@ const Hero: React.FC = () => {
       <div className="absolute top-36 z-10">
         <div className="relative flex flex-col justify-center items-center">
           {/* berisi my photo */}
-          <span className="absolute bg-orange-400 top-24 rounded-full lg:w-[550px] lg:h-[550px] max-sm:w-[400px] max-sm:h-[400px]"></span>
+          <span className="absolute bg-orange-400 top-24 rounded-full lg:w-[550px] lg:h-[550px] max-sm:w-[350px] max-sm:h-[350px]"></span>
           <motion.span
             initial={{ y: 0 }}
             animate={{
