@@ -35,3 +35,10 @@
     opacity: 0.5;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .load-poject-container {
+    width: 300px;
+    height: 315px;
+  }
+}

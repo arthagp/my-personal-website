@@ -5,7 +5,7 @@
 /* Navbar */
 .navbar {
   position: sticky;
-  z-index: 999;
+  z-index: 40;
   top: 23px;
 }
 .shadow-box {

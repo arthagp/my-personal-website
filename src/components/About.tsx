@@ -22,7 +22,7 @@ import vscodeIcon from "../../public/icons/vs.svg";
 
 const About = () => {
   return (
-    <section id="about" className="bg-gray-700 w-full max-sm:h-[1000px]">
+    <section id="about" className="bg-gray-700 w-full max-sm:h-[1000px] max-sm:overflow-hidden">
       <div className="m-16 flex max-sm:flex-col justify-around items-center">
         <div className="relative flex justify-center items-center w-[50%] translate-y-60">
           <div className="absolute bottom-0 bg-orange-400 rounded-4xl lg:w-[350px] lg:h-[350px] max-sm:w-[250px] max-sm:h-[250px]"></div>

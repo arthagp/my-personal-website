@@ -35,3 +35,10 @@
     opacity: 0.5;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .load-certificate-container {
+    width: 350px;
+    height: 240px;
+  }
+}

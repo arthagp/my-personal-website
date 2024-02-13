@@ -11,16 +11,20 @@ import {
 
 const Footer: React.FC = () => {
   return (
-    <div className="rounded-t-3xl bg-neutral-800 w-full text-white mt-16">
+    <div className="rounded-t-3xl bg-neutral-800 w-full text-white mt-16 max-sm:overflow-hidden">
       <div className="lg:m-16 max-sm:m-8 flex flex-col justify-center items-center">
         <div className="flex justify-between w-full items-center m-4">
-          <h1 className="text-4xl font-semibold">Lets Connect There</h1>
-          <button className="bg-orange-400 max-sm:text-sm  rounded-3xl py-2 px-4 font-semibold flex justify-center items-center gap-2">
-            Contact me{" "}
-            <span>
-              <Image src={btnContactMe} alt="btn-arrow" width={20} />
-            </span>
-          </button>
+          <h1 className="text-4xl w-[50%] max-sm:text-3xl font-semibold">
+            Lets Connect There
+          </h1>
+          <div className="w-[50%] flex justify-end">
+            <button className="bg-orange-400  max-sm:text-sm rounded-3xl lg:py-2 lg:px-4 max-sm:py-2 max-sm:px-5 font-semibold flex justify-center items-center">
+              Contact me
+              <span className="max-sm:hidden ml-2">
+                <Image src={btnContactMe} alt="btn-arrow" width={20} />
+              </span>
+            </button>
+          </div>
         </div>
         {/* horizontal line */}
         <div className="w-full h-[1px] bg-gray-400 mt-16"></div>
@@ -90,7 +94,7 @@ const Footer: React.FC = () => {
         {/* horizontal line */}
         <div className="w-full h-[1px] bg-gray-400 mt-2"></div>
         {/* horizontal line */}
-        <div className="w-full lg:-mb-12 lg:mt-10 max-sm:mt-2 opacity-90 flex justify-between items-center font-light">
+        <div className="w-full lg:-mb-12 lg:mt-10 max-sm:mt-2 opacity-90 flex max-sm:justify-center lg:justify-between items-center font-light">
           <p>Copyright&copy; Artha Gusfi P . 2024</p>
           <p className="max-sm:hidden">
             Reference Design by Figma : Jayesh Patil

@@ -79,10 +79,10 @@ const Modal: React.FC<ModalProps> = ({
             className="fixed inset-0 flex items-center justify-center bg-gray-800 backdrop-blur-sm bg-opacity-75 z-50"
           ></div>
           <motion.div
-            initial={{ opacity: 0, scale: 0.7, y: 6 }}
-            animate={{ opacity: 1, scale: 1, y: 6 }} // y pengaruh terhadap vertikal view
+            initial={{ opacity: 0, scale: 0.7 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="fixed inset-0 flex flex-col bg-white items-center justify-center mx-auto h-[98vh] max-w-2xl z-50 rounded-2xl overflow-auto"
+            className="fixed inset-5 max-sm:inset-9 flex flex-col max-sm:mt-15 bg-white items-center justify-center mx-auto max-sm:h-[75vh] h-[95vh] max-w-2xl z-50 rounded-2xl"
           >
             <div className="relative h-[60%] w-full">
               {type === "certificate" ? (
@@ -104,7 +104,7 @@ const Modal: React.FC<ModalProps> = ({
               )}
               <div className="absolute top-0 left-0 inset-0 m-4">
                 <button
-                  className="text-gray-800 hover:text-red-500 focus:outline-none w-8 h-8"
+                  className="text-gray-800 hover:text-red-500 max-sm:focus:text-red-500 focus:outline-none w-8 h-8"
                   onClick={handleCloseModal}
                 >
                   <IoMdClose className="w-full h-full" />

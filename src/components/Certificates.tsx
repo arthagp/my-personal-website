@@ -50,12 +50,12 @@ const Certificates: React.FC = () => {
   return (
     <motion.section
       id="certificate"
-      className="flex flex-col justify-center items-center my-20 w-full"
+      className="flex flex-col justify-center items-center my-20 w-full max-sm:overflow-hidden"
     >
       {isModal && (
         <Modal certificateId={idCertificate} isModal={setIsModal} type={type} />
       )}
-      <div className="flex max-sm:flex-col justify-between items-center">
+      <div className="flex max-sm:flex-col justify-between lg:max-w-[1200px] items-center w-full">
         <h1 className="text-4xl font-semibold">
           Lets have a look at <br /> my{" "}
           <span className="text-orange-400">Certificate</span>
@@ -79,7 +79,7 @@ const Certificates: React.FC = () => {
           currentCertificates.map((certificate) => (
             <motion.div
               key={certificate.id}
-              className="relative card bg-gradient-to-r from-black rounded-3xl lg:w-[400px] lg:h-[290px] max-sm:w-[390px] max-sm:h-[286px]"
+              className="relative card bg-gradient-to-r from-black rounded-3xl lg:w-[400px] lg:h-[290px] max-sm:w-[320px] max-sm:h-[220px]"
               whileHover={{ scale: 1.05 }}
             >
               {certificate?.imageUrl && certificate?.title && (

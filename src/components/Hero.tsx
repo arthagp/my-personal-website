@@ -15,7 +15,7 @@ const Hero: React.FC = () => {
   return (
     <section
       id="home"
-      className="relative w-full flex justify-center items-center flex-col my-10 pb-[250px]"
+      className="relative w-full flex justify-center items-center flex-col my-10 pb-[250px] "
     >
       {/*  */}
       <motion.div
@@ -47,20 +47,20 @@ const Hero: React.FC = () => {
         } relative flex justify-center items-center flex-col`}
       >
         <div className="relative flex justify-center items-center">
-          <span className="absolute flex -top-5 -right-5">
-            <Image src={vector1} alt="vector-1" width={25} height={25} />
+          <span className="absolute flex -top-5 -right-5 lg:w-[25px] lg:h-[25px] max-sm:w-[20px] max-sm:h-[20px]">
+            <Image src={vector1} alt="vector-1" fill />
           </span>
           <h4 className="px-6 py-2 border border-black rounded-4xl font-semibold">
             Hello!
           </h4>
         </div>
         <div className="relative max-w-[1200px] my-5">
-          <h1 className="font-bold text-7xl max-sm:text-3xl text-center">
+          <h1 className="font-bold text-7xl max-sm:text-4xl text-center">
             I'm <span className="text-orange-400">Artha</span>, <br /> Front End
             Developer
           </h1>
-          <span className="absolute flex -bottom-10 -left-14">
-            <Image src={vector2} alt="vector-2" width={55} height={55} />
+          <span className="absolute flex -bottom-10 -left-14 lg:w-[55px] lg:h-[55px] max-sm:w-[45px] max-sm:h-[45px]">
+            <Image src={vector2} alt="vector-2" fill />
           </span>
         </div>
       </motion.div>

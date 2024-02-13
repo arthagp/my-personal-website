@@ -16,20 +16,14 @@ const Experience: React.FC = () => {
     }
   };
 
-  console.log(experiences);
-
   useEffect(() => {
     fetchExperience();
   }, []);
 
-  if (!experiences) {
-    return null;
-  }
-
   return (
     <section
       id="experience"
-      className="flex flex-col justify-center items-center my-16"
+      className="flex flex-col justify-center items-center my-16 max-sm:overflow-hidden"
     >
       <div className="my-16">
         <h1 className="font-semibold text-4xl ">
