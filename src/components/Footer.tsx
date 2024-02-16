@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import Image from "next/image";
 import btnContactMe from "../../public/arrow-right-up.svg";
 import sendIcon from "../../public/send-icon.svg";
@@ -7,6 +8,7 @@ import {
   FaGithub,
   FaWhatsapp,
   FaFacebookSquare,
+  FaLinkedin,
 } from "react-icons/fa";
 
 const Footer: React.FC = () => {
@@ -45,10 +47,21 @@ const Footer: React.FC = () => {
               engage users.
             </p>
             <div className="flex gap-x-3">
-              <FaInstagram color="white" size="1.5em" />
-              <FaGithub color="white" size="1.5em" />
-              <FaWhatsapp color="white" size="1.5em" />
-              <FaFacebookSquare color="white" size="1.5em" />
+              <Link href="https://wa.me/628123456789" target="_blank">
+                <FaWhatsapp color="white" size="1.5em" />
+              </Link>
+              <Link href="https://www.instagram.com/arthagp_/" target="_blank">
+                <FaInstagram color="white" size="1.5em" />
+              </Link>
+              <Link href="https://github.com/arthagp" target="_blank">
+                <FaGithub color="white" size="1.5em" />
+              </Link>
+              <Link
+                href="https://www.linkedin.com/in/artha-gusfi-putra-784878194"
+                target="_blank"
+              >
+                <FaLinkedin color="white" size="1.5em" />
+              </Link>
             </div>
           </div>
           <div className="w-[50%] flex justify-center items-center gap-x-10">

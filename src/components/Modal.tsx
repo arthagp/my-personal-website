@@ -82,7 +82,7 @@ const Modal: React.FC<ModalProps> = ({
             initial={{ opacity: 0, scale: 0.7 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="fixed inset-5 max-sm:inset-9 flex flex-col max-sm:mt-15 bg-white items-center justify-center mx-auto max-sm:h-[75vh] h-[95vh] max-w-2xl z-50 rounded-2xl"
+            className="fixed inset-5 max-sm:inset-9 flex flex-col max-sm:mt-15 bg-white items-center justify-center mx-auto max-w-2xl z-50 rounded-2xl overflow-y-auto"
           >
             <div className="relative h-[60%] w-full">
               {type === "certificate" ? (
@@ -111,10 +111,10 @@ const Modal: React.FC<ModalProps> = ({
                 </button>
               </div>
             </div>
-            <div className="p-4 flex flex-col gap-1 w-full h-[40%]">
+            <div className="p-4 flex flex-col justify-between gap-1 w-full h-[40%]">
               {type === "certificate" ? (
                 <>
-                  <h1 className="font-bold text-2xl mb-2">
+                  <h1 className="font-bold text-xl mb-2">
                     {certificate?.title}
                   </h1>
                   <p className="opacity-40 font-semibold">Certificate</p>
@@ -122,7 +122,7 @@ const Modal: React.FC<ModalProps> = ({
                 </>
               ) : (
                 <>
-                  <h1 className="font-bold text-2xl mb-2">{projects?.title}</h1>
+                  <h1 className="font-bold text-xl mb-2">{projects?.title}</h1>
                   <p className="opacity-40 font-semibold">Project</p>
                   <p className="mb-4 text-sm">{projects?.description}</p>
                   <span className="flex gap-x-2">
@@ -132,59 +132,60 @@ const Modal: React.FC<ModalProps> = ({
                   </span>
                 </>
               )}
-            </div>
-            <div className="flex p-4 justify-between w-full items-center">
-              {type === "certificate" && certificate?.urlCertificate && (
-                <div className="flex justify-end">
-                  <Link
-                    href={certificate.urlCertificate}
-                    target="_blank"
-                    className="text-sm px-3 py-1 flex gap-3 items-center font-medium bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none"
-                  >
-                    <FaLink />
-                    See Certificate
-                  </Link>
-                </div>
-              )}
-              {type === "project" && projects?.urlDeployment && (
-                <div className="flex justify-end">
-                  <Link
-                    href={projects.urlDeployment}
-                    target="_blank"
-                    className="text-sm px-3 py-1 flex justify-center items-center gap-3 font-medium bg-blue-400 text-white rounded-lg hover:bg-blue-500 focus:outline-none"
-                  >
-                    <FaLink />
-                    Preview
-                  </Link>
-                </div>
-              )}
-              <div className="flex flex-col gap-2">
-                {type === "project" && projects?.urlRepository && (
-                  <div className="flex">
-                    {
+              {/* link */}
+              <div className="flex py-5 justify-between w-full items-center">
+                {type === "certificate" && certificate?.urlCertificate && (
+                  <div className="flex justify-end">
+                    <Link
+                      href={certificate.urlCertificate}
+                      target="_blank"
+                      className="text-sm px-3 py-1 flex gap-3 items-center font-medium bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none"
+                    >
+                      <FaLink />
+                      See Certificate
+                    </Link>
+                  </div>
+                )}
+                {type === "project" && projects?.urlDeployment && (
+                  <div className="flex justify-end">
+                    <Link
+                      href={projects.urlDeployment}
+                      target="_blank"
+                      className="text-sm px-3 py-1 flex justify-center items-center gap-3 font-medium bg-blue-400 text-white rounded-lg hover:bg-blue-500 focus:outline-none"
+                    >
+                      <FaLink />
+                      Preview
+                    </Link>
+                  </div>
+                )}
+                <div className="flex flex-col gap-2">
+                  {type === "project" && projects?.urlRepository && (
+                    <div className="flex">
+                      {
+                        <Link
+                          href={projects.urlRepository}
+                          target="_blank"
+                          className="text-sm px-3 py-1 flex justify-center items-center gap-3 font-medium bg-gray-800 text-white rounded-lg hover:bg-gray-600 focus:outline-none"
+                        >
+                          <FaGithub />
+                          Github Repository
+                        </Link>
+                      }
+                    </div>
+                  )}
+                  {type === "project" && projects?.urlRepoServerSide && (
+                    <div className="flex">
                       <Link
-                        href={projects.urlRepository}
+                        href={projects.urlRepoServerSide}
                         target="_blank"
                         className="text-sm px-3 py-1 flex justify-center items-center gap-3 font-medium bg-gray-800 text-white rounded-lg hover:bg-gray-600 focus:outline-none"
                       >
                         <FaGithub />
-                        Github Repository
+                        Repository BackEnd
                       </Link>
-                    }
-                  </div>
-                )}
-                {type === "project" && projects?.urlRepoServerSide && (
-                  <div className="flex">
-                    <Link
-                      href={projects.urlRepoServerSide}
-                      target="_blank"
-                      className="text-sm px-3 py-1 flex justify-center items-center gap-3 font-medium bg-gray-800 text-white rounded-lg hover:bg-gray-600 focus:outline-none"
-                    >
-                      <FaGithub />
-                      Repository BackEnd
-                    </Link>
-                  </div>
-                )}
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </motion.div>

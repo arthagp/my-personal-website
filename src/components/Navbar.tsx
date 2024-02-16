@@ -29,7 +29,7 @@ const Navbar: React.FC = () => {
       }}
       className={`${
         scrollY > 0 ? `shadow-box` : ``
-      } navbar flex justify-center items-center h-16 w-[1298px] rounded-[30px] bg-neutral-800 my-7 max-sm:hidden`}
+      } navbar flex justify-center items-center h-16 max-w-[1298px] rounded-[30px] bg-neutral-800 my-7 max-sm:hidden`}
     >
       <nav className="flex justify-between items-center min-w-[1275px] text-white">
         <ul className="flex justify-center items-center gap-x-10 font-extralight">
@@ -40,7 +40,7 @@ const Navbar: React.FC = () => {
               offset={-300}
               spy={true}
               activeClass="active"
-              className="py-3 px-6"
+              className="py-3 px-6 ml-2"
             >
               Home
             </Link>

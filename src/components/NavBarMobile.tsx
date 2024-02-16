@@ -9,10 +9,10 @@ interface NavbarProps {
 const NavBarMobile = ({ handleClose }: NavbarProps) => {
   return (
     <motion.nav
-      initial={{ opacity: 0, x: 50 }}
+      initial={{ opacity: 0, x: 370 }}
       animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: 50 }}
-      transition={{ duration: 0.5 }}
+      exit={{ x: 370 }}
+      transition={{ duration: 0.8, type: "spring" }}
       className="fixed inset-0 bg-neutral-700 flex flex-col justify-center items-center w-full h-[100vh] z-40"
     >
       <div className="relative flex justify-center items-center h-12 my-12">

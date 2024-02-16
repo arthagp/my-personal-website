@@ -58,7 +58,7 @@ const Project: React.FC = () => {
       )}
       <section
         id="project"
-        className="z-10 rounded-3xl flex flex-col justify-center bg-gray-800 mt-7 items-center w-[100%] bg-project max-sm:overflow-hidden"
+        className="z-10 rounded-3xl flex flex-col justify-center bg-gray-800 mt-7 items-center w-full bg-project max-sm:overflow-hidden"
       >
         <div className="flex max-sm:flex-col max-sm:p-4 justify-between w-[90%] my-16 gap-y-5">
           <h1 className="text-4xl max-sm:text-3xl max-sm:flex-col font-semibold text-white justify-start">
@@ -87,7 +87,7 @@ const Project: React.FC = () => {
                 transition={{ duration: 0.2 }}
                 whileHover={{ scale: 1.05 }}
                 key={project.id}
-                className="border border-gray-500 card-bg rounded-3xl lg:w-[370px] lg:h-[385px] max-sm:w-[320px] max-sm:h-[330px]"
+                className="border border-gray-500 card-bg rounded-3xl w-[370px] h-[385px] max-sm:w-[320px] max-sm:h-[330px]"
               >
                 <div className="border-b border-gray-500">
                   <h1 className="text-white font-semibold py-5 pl-2">

@@ -31,7 +31,7 @@ const HamburgNav = () => {
       <button
         className={`${
           scrollY > 0 ? "shadow-box" : ""
-        } fixed top-2 right-2 bg-neutral-700 rounded-full w-14 h-14 flex flex-col justify-center items-center gap-1.5 z-50 lg:hidden`}
+        } fixed top-2 right-2 bg-neutral-700 rounded-full w-14 h-14 max-sm:flex flex-col justify-center items-center gap-1.5 z-50 hidden`}
         onClick={handleOnClicked}
       >
         <motion.span
