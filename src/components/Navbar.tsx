@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
           scrollY > 0 ? `shadow-box` : ``
         } flex justify-center items-center h-16 rounded-[30px] mx-auto bg-neutral-800 text-white`}
       >
-        <ul className="flex justify-center mx-auto items-center gap-x-10 font-extralight">
+        <ul className="flex justify-center mx-auto items-center gap-x-16 font-extralight">
           <li>
             <Link
               to="home"
@@ -42,7 +42,7 @@ const Navbar: React.FC = () => {
               offset={-300}
               spy={true}
               activeClass="active"
-              className="py-3 px-6 ml-2"
+              className="py-3 px-5 ml-2"
             >
               Home
             </Link>
@@ -55,7 +55,7 @@ const Navbar: React.FC = () => {
               offset={-50}
               spy={true}
               activeClass="active"
-              className="py-3 px-6"
+              className="py-3 px-5"
             >
               Project
             </Link>
@@ -68,7 +68,7 @@ const Navbar: React.FC = () => {
               offset={-50}
               spy={true}
               activeClass="active"
-              className="py-3 px-6"
+              className="py-3 px-5"
             >
               Experience
             </Link>
@@ -87,7 +87,7 @@ const Navbar: React.FC = () => {
               offset={-50}
               spy={true}
               activeClass="active"
-              className="py-3 px-6"
+              className="py-3 px-5"
             >
               About
             </Link>
@@ -99,7 +99,7 @@ const Navbar: React.FC = () => {
               offset={-90}
               spy={true}
               activeClass="active"
-              className="py-3 px-6"
+              className="py-3 px-5"
             >
               Certificate
             </Link>
@@ -110,7 +110,7 @@ const Navbar: React.FC = () => {
               smooth={true}
               offset={-200}
               spy={true}
-              className="py-3 px-6"
+              className="py-3 px-5"
             >
               Contact
             </Link>

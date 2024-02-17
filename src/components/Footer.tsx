@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
         {/* horizontal line */}
         <div className="w-full h-[1px] bg-gray-400 mt-16"></div>
         {/* horizontal line */}
-        <div className="w-full bg-red-500 my-6 flex max-sm:flex-col max-sm:gap-y-4 justify-between items-center">
+        <div className="w-full my-6 flex max-sm:flex-col max-sm:gap-y-4 justify-between items-center">
           <div className="max-sm:w-full flex flex-col gap-y-4">
             <div className="relative flex justify-start items-center h-12 w-[150px]">
               <h1 className="z-10 decorationLogo text-white font-bold text-2xl">
