@@ -27,12 +27,12 @@ const Navbar: React.FC = () => {
         stiffness: 150,
         damping: 20,
       }}
-      className={`navbar flex justify-center items-center my-7 max-sm:hidden w-full`}
+      className={`navbar my-7 max-sm:hidden w-full`}
     >
       <nav
         className={`${
           scrollY > 0 ? `shadow-box` : ``
-        } flex justify-center items-center h-16 rounded-[30px] mx-auto bg-neutral-800 text-white`}
+        } flex justify-center items-center h-16 rounded-[30px] mx-auto bg-neutral-800 text-white max-w-[1150px]`}
       >
         <ul className="flex justify-center mx-auto items-center gap-x-16 font-extralight">
           <li>
@@ -42,7 +42,7 @@ const Navbar: React.FC = () => {
               offset={-300}
               spy={true}
               activeClass="active"
-              className="py-3 px-5 ml-2"
+              className="py-3 px-6 ml-2"
             >
               Home
             </Link>
@@ -55,7 +55,7 @@ const Navbar: React.FC = () => {
               offset={-50}
               spy={true}
               activeClass="active"
-              className="py-3 px-5"
+              className="py-3 px-6"
             >
               Project
             </Link>
@@ -68,7 +68,7 @@ const Navbar: React.FC = () => {
               offset={-50}
               spy={true}
               activeClass="active"
-              className="py-3 px-5"
+              className="py-3 px-6"
             >
               Experience
             </Link>
@@ -87,7 +87,7 @@ const Navbar: React.FC = () => {
               offset={-50}
               spy={true}
               activeClass="active"
-              className="py-3 px-5"
+              className="py-3 px-6"
             >
               About
             </Link>
@@ -99,7 +99,7 @@ const Navbar: React.FC = () => {
               offset={-90}
               spy={true}
               activeClass="active"
-              className="py-3 px-5"
+              className="py-3 px-6"
             >
               Certificate
             </Link>
@@ -110,7 +110,7 @@ const Navbar: React.FC = () => {
               smooth={true}
               offset={-200}
               spy={true}
-              className="py-3 px-5"
+              className="py-3 px-6"
             >
               Contact
             </Link>

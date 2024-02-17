@@ -7,7 +7,6 @@ import {
   FaInstagram,
   FaGithub,
   FaWhatsapp,
-  FaFacebookSquare,
   FaLinkedin,
 } from "react-icons/fa";
 
@@ -19,14 +18,12 @@ const Footer: React.FC = () => {
           <h1 className="text-4xl max-sm:text-3xl font-semibold">
             Lets Connect There
           </h1>
-          <div className="flex justify-end">
-            <button className="bg-orange-400  max-sm:text-sm rounded-3xl lg:py-2 lg:px-4 max-sm:py-2 max-sm:px-5 font-semibold flex justify-center items-center">
-              Contact me
-              <span className="max-sm:hidden ml-2">
-                <Image src={btnContactMe} alt="btn-arrow" width={20} />
-              </span>
-            </button>
-          </div>
+          <button className="bg-orange-400 max-sm:text-sm rounded-3xl lg:py-2 lg:px-4 max-sm:py-2 max-sm:px-5 font-semibold flex justify-center items-center">
+            Contact me
+            <span className="max-sm:hidden ml-2">
+              <Image src={btnContactMe} alt="btn-arrow" width={20} />
+            </span>
+          </button>
         </div>
         {/* horizontal line */}
         <div className="w-full h-[1px] bg-gray-400 mt-16"></div>
