@@ -16,10 +16,10 @@ const Footer: React.FC = () => {
     <div className="rounded-t-3xl bg-neutral-800 w-full text-white mt-16 max-sm:overflow-hidden">
       <div className="m-16 max-sm:m-8 flex flex-col justify-center items-center">
         <div className="flex justify-between w-full items-center m-4">
-          <h1 className="text-4xl w-[50%] max-sm:text-3xl font-semibold">
+          <h1 className="text-4xl max-sm:text-3xl font-semibold">
             Lets Connect There
           </h1>
-          <div className="w-[50%] flex justify-end">
+          <div className="flex justify-end">
             <button className="bg-orange-400  max-sm:text-sm rounded-3xl lg:py-2 lg:px-4 max-sm:py-2 max-sm:px-5 font-semibold flex justify-center items-center">
               Contact me
               <span className="max-sm:hidden ml-2">
@@ -31,8 +31,8 @@ const Footer: React.FC = () => {
         {/* horizontal line */}
         <div className="w-full h-[1px] bg-gray-400 mt-16"></div>
         {/* horizontal line */}
-        <div className="w-full my-6 flex max-sm:flex-col max-sm:gap-y-4 justify-between items-center">
-          <div className="w-[50%] max-sm:w-full flex flex-col gap-y-4">
+        <div className="w-full bg-red-500 my-6 flex max-sm:flex-col max-sm:gap-y-4 justify-between items-center">
+          <div className="max-sm:w-full flex flex-col gap-y-4">
             <div className="relative flex justify-start items-center h-12 w-[150px]">
               <h1 className="z-10 decorationLogo text-white font-bold text-2xl">
                 ARTHA G.P
@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
               </Link>
             </div>
           </div>
-          <div className="w-[50%] flex justify-center items-center gap-x-10">
+          <div className="flex justify-center gap-x-10">
             <div className="max-sm:hidden">
               <h1 className="font-semibold text-lg text-orange-400">
                 Navigation

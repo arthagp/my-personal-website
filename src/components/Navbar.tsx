@@ -27,14 +27,14 @@ const Navbar: React.FC = () => {
         stiffness: 150,
         damping: 20,
       }}
-      className={`navbar flex justify-center items-center my-7 max-sm:hidden w-full px-28`}
+      className={`navbar flex justify-center items-center my-7 max-sm:hidden w-full`}
     >
       <nav
         className={`${
           scrollY > 0 ? `shadow-box` : ``
-        } flex justify-center items-center h-16 w-full rounded-[30px] mx-auto bg-neutral-800 text-white`}
+        } flex justify-center items-center h-16 rounded-[30px] mx-auto bg-neutral-800 text-white`}
       >
-        <ul className="flex justify-center mx-auto items-center gap-x-16 font-extralight">
+        <ul className="flex justify-center mx-auto items-center gap-x-10 font-extralight">
           <li>
             <Link
               to="home"
@@ -76,10 +76,10 @@ const Navbar: React.FC = () => {
         </ul>
         <div className="relative flex justify-center items-center h-12 mx-16">
           <span className="absolute opacity-90 top-1 left-1 rounded-full w-6 h-6 bg-orange-400"></span>
-          <h1 className="z-10 text-white font-bold text-2xl">ARTHA G.P</h1>
+          <h1 className="z-10 text-white font-bold text-xl">ARTHA G.P</h1>
           <span className="absolute opacity-90 bottom-1 right-1 rounded-full w-6 h-6 bg-orange-400"></span>
         </div>
-        <ul className="flex justify-center mx-auto items-center gap-x-16 font-extralight">
+        <ul className="flex justify-center mx-auto items-center gap-x-10 font-extralight">
           <li>
             <Link
               to="about"

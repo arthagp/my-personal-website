@@ -9,7 +9,7 @@ const roboto = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Website Portofolio by artha.gp",
+  title: "Website Portofolio",
   description:
     "Welcome to my corner of the web! Dive into my portfolio where creativity meets code. Explore a collection of beautifully crafted websites, interactive web applications, and user-friendly interfaces. With a passion for front-end development, I bring designs to life and create seamless digital experiences that leave a lasting impression. Let's embark on a journey through innovation and creativity together!",
 };
