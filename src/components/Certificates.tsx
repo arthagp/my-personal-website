@@ -5,9 +5,8 @@ import { motion } from "framer-motion";
 import Modal from "./Modal";
 import { Certificate } from "../types/certificate";
 import Pagination from "./Pagination";
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa6";
+import { FaArrowRight } from "react-icons/fa6";
 import LoadCertificate from "./LoadCertificate";
-import dicodingFe from "../../public/dicodingFE.png";
 
 const Certificates: React.FC = () => {
   const type: string = "certificate";
@@ -68,7 +67,7 @@ const Certificates: React.FC = () => {
           See All
         </motion.button>
       </div>
-      <div className="flex max-sm:flex-col m-12 gap-7">
+      <div className="flex justify-center items-center max-sm:flex-col m-12 gap-7 w-full">
         {isLoading ? (
           <>
             <LoadCertificate />

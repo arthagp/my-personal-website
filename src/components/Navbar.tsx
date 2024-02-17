@@ -18,8 +18,6 @@ const Navbar: React.FC = () => {
     };
   }, []);
 
-  // TODO : JANGAN DI BERI SEBUAH EXACT WIDTH
-
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0 }}
@@ -29,12 +27,12 @@ const Navbar: React.FC = () => {
         stiffness: 150,
         damping: 20,
       }}
-      className={`navbar flex justify-center items-center my-7 max-sm:hidden`}
+      className={`navbar flex justify-center items-center my-7 max-sm:hidden w-full px-28`}
     >
       <nav
         className={`${
           scrollY > 0 ? `shadow-box` : ``
-        } flex justify-center items-center h-16 w-full rounded-[30px] mx-auto bg-neutral-800 px-5 text-white`}
+        } flex justify-center items-center h-16 w-full rounded-[30px] mx-auto bg-neutral-800 text-white`}
       >
         <ul className="flex justify-center mx-auto items-center gap-x-16 font-extralight">
           <li>

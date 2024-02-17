@@ -14,7 +14,7 @@ import {
 const Footer: React.FC = () => {
   return (
     <div className="rounded-t-3xl bg-neutral-800 w-full text-white mt-16 max-sm:overflow-hidden">
-      <div className="lg:m-16 max-sm:m-8 flex flex-col justify-center items-center">
+      <div className="m-16 max-sm:m-8 flex flex-col justify-center items-center">
         <div className="flex justify-between w-full items-center m-4">
           <h1 className="text-4xl w-[50%] max-sm:text-3xl font-semibold">
             Lets Connect There
