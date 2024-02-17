@@ -18,6 +18,8 @@ const Navbar: React.FC = () => {
     };
   }, []);
 
+  // TODO : JANGAN DI BERI SEBUAH EXACT WIDTH
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0 }}
@@ -27,12 +29,14 @@ const Navbar: React.FC = () => {
         stiffness: 150,
         damping: 20,
       }}
-      className={`${
-        scrollY > 0 ? `shadow-box` : ``
-      } navbar flex justify-center items-center h-16 max-w-[1298px] rounded-[30px] bg-neutral-800 my-7 max-sm:hidden`}
+      className={`navbar flex justify-center items-center my-7 max-sm:hidden`}
     >
-      <nav className="flex justify-between items-center min-w-[1275px] text-white">
-        <ul className="flex justify-center items-center gap-x-10 font-extralight">
+      <nav
+        className={`${
+          scrollY > 0 ? `shadow-box` : ``
+        } flex justify-center items-center h-16 w-full rounded-[30px] mx-auto bg-neutral-800 px-5 text-white`}
+      >
+        <ul className="flex justify-center mx-auto items-center gap-x-16 font-extralight">
           <li>
             <Link
               to="home"
@@ -72,12 +76,12 @@ const Navbar: React.FC = () => {
             </Link>
           </li>
         </ul>
-        <div className="relative flex justify-center items-center h-12">
+        <div className="relative flex justify-center items-center h-12 mx-16">
           <span className="absolute opacity-90 top-1 left-1 rounded-full w-6 h-6 bg-orange-400"></span>
           <h1 className="z-10 text-white font-bold text-2xl">ARTHA G.P</h1>
           <span className="absolute opacity-90 bottom-1 right-1 rounded-full w-6 h-6 bg-orange-400"></span>
         </div>
-        <ul className="flex justify-center items-center gap-x-10 font-extralight mx-5">
+        <ul className="flex justify-center mx-auto items-center gap-x-16 font-extralight">
           <li>
             <Link
               to="about"

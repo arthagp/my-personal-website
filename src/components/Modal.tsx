@@ -84,7 +84,7 @@ const Modal: React.FC<ModalProps> = ({
             transition={{ duration: 0.5 }}
             className="fixed inset-5 max-sm:inset-9 flex flex-col max-sm:mt-15 bg-white items-center justify-center mx-auto max-w-2xl z-50 rounded-2xl overflow-y-auto"
           >
-            <div className="relative h-[60%] w-full">
+            <div className="relative h-[50%] w-full">
               {type === "certificate" ? (
                 <Image
                   className="object-contain"
@@ -111,7 +111,7 @@ const Modal: React.FC<ModalProps> = ({
                 </button>
               </div>
             </div>
-            <div className="p-4 flex flex-col justify-between gap-1 w-full h-[40%]">
+            <div className="p-4 flex flex-col justify-between gap-1 w-full h-[50%]">
               {type === "certificate" ? (
                 <>
                   <h1 className="font-bold text-xl mb-2">

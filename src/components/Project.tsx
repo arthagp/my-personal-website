@@ -72,7 +72,7 @@ const Project: React.FC = () => {
             creativity. Explore the possibilities!
           </p>
         </div>
-        <div className="flex max-sm:flex-col justify-start items-center gap-12">
+        <div className="flex max-sm:flex-col justify-center items-center gap-12 w-full">
           {isLoading ? (
             <>
               <LoadProject />
@@ -87,7 +87,7 @@ const Project: React.FC = () => {
                 transition={{ duration: 0.2 }}
                 whileHover={{ scale: 1.05 }}
                 key={project.id}
-                className="border border-gray-500 card-bg rounded-3xl w-[370px] h-[385px] max-sm:w-[320px] max-sm:h-[330px]"
+                className="border border-gray-500 card-bg  rounded-3xl w-[370px] h-[385px] max-sm:w-[320px] max-sm:h-[330px]"
               >
                 <div className="border-b border-gray-500">
                   <h1 className="text-white font-semibold py-5 pl-2">

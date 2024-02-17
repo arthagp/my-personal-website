@@ -56,10 +56,7 @@ const Footer: React.FC = () => {
               <Link href="https://github.com/arthagp" target="_blank">
                 <FaGithub color="white" size="1.5em" />
               </Link>
-              <Link
-                href="https://www.linkedin.com/in/artha-gusfi-putra-784878194"
-                target="_blank"
-              >
+              <Link href="https://www.linkedin.com/in/artha-gusfi-putra-784878194">
                 <FaLinkedin color="white" size="1.5em" />
               </Link>
             </div>

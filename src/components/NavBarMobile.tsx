@@ -24,6 +24,7 @@ const NavBarMobile = ({ handleClose }: NavbarProps) => {
         <Link
           onClick={handleClose}
           smooth={true}
+          offset={-50}
           to="home"
           className="font-semibold text-lg "
         >
