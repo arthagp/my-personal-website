@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
               engage users.
             </p>
             <div className="flex gap-x-3">
-              <Link href="https://wa.me/628123456789" target="_blank">
+              <Link href="https://wa.me/6283848762736" target="_blank">
                 <FaWhatsapp color="white" size="1.5em" />
               </Link>
               <Link href="https://www.instagram.com/arthagp_/" target="_blank">
