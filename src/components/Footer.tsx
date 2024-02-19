@@ -3,27 +3,29 @@ import Link from "next/link";
 import Image from "next/image";
 import btnContactMe from "../../public/arrow-right-up.svg";
 import sendIcon from "../../public/send-icon.svg";
-import {
-  FaInstagram,
-  FaGithub,
-  FaWhatsapp,
-  FaLinkedin,
-} from "react-icons/fa";
+import { FaInstagram, FaGithub, FaWhatsapp, FaLinkedin } from "react-icons/fa";
 
 const Footer: React.FC = () => {
   return (
     <div className="rounded-t-3xl bg-neutral-800 w-full text-white mt-16 max-sm:overflow-hidden">
       <div className="m-16 max-sm:m-8 flex flex-col justify-center items-center">
-        <div className="flex justify-between w-full items-center m-4">
-          <h1 className="text-4xl max-sm:text-3xl font-semibold">
-            Lets Connect There
-          </h1>
-          <button className="bg-orange-400 max-sm:text-sm rounded-3xl lg:py-2 lg:px-4 max-sm:py-2 max-sm:px-5 font-semibold flex justify-center items-center">
-            Contact me
-            <span className="max-sm:hidden ml-2">
-              <Image src={btnContactMe} alt="btn-arrow" width={20} />
-            </span>
-          </button>
+        <div className="flex justify-between w-full items-center m-4 gap-2">
+          <div className="w-1/2">
+            <h1 className="text-4xl max-sm:text-3xl font-semibold">
+              Lets Connect There
+            </h1>
+          </div>
+          <div className="w-1/2 flex justify-end items-center">
+            <Link
+              href={"mailto:arthagusfi8@gmail.com"}
+              className="bg-orange-400 max-sm:text-xs rounded-3xl py-2 px-4 max-sm:py-2 max-sm:px-6 font-semibold flex justify-center items-center"
+            >
+              Contact me
+              <span className="max-sm:hidden ml-2">
+                <Image src={btnContactMe} alt="btn-arrow" width={20} />
+              </span>
+            </Link>
+          </div>
         </div>
         {/* horizontal line */}
         <div className="w-full h-[1px] bg-gray-400 mt-16"></div>

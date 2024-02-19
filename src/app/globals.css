@@ -62,12 +62,11 @@
   right: 9px;
 }
 
-/* .bg-project {
-  background-image: url("../../public/property-1.png");
+.bg-project {
+  background-image: url("../../public/bg-project.png");
   background-repeat: no-repeat;
-} */
-
-/* bg di ganti menggunakan icon asli bukan img */
+  background-size: cover;
+}
 
 .btnSeeAll:hover {
   background-color: rgb(31 41 55);
@@ -122,10 +121,7 @@
   -webkit-font-smoothing: antialiased;
 }
 
-ul,
-li {
-  cursor: pointer;
-}
+/*  */
 
 .active {
   border-radius: 30px;
@@ -133,3 +129,8 @@ li {
   font-weight: 600;
 }
 
+@media screen and (max-width: 600px) {
+  .bg-project {
+    background-image: none;
+  }
+}
