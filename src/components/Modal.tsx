@@ -76,7 +76,7 @@ const Modal: React.FC<ModalProps> = ({
         <>
           <div
             onClick={handleCloseModal}
-            className="fixed inset-0 flex items-center justify-center bg-gray-800 backdrop-blur-sm bg-opacity-75 z-50"
+            className="fixed inset-0 flex items-center justify-center bg-gray-800 backdrop-blur-sm bg-opacity-75 z-50 h-full"
           ></div>
           <motion.div
             initial={{ opacity: 0, scale: 0.7 }}
@@ -102,9 +102,9 @@ const Modal: React.FC<ModalProps> = ({
                   fill={true}
                 />
               )}
-              <div className="absolute top-0 left-0 inset-0 m-4">
+              <div className="fixed top-15 left-15 m-4">
                 <button
-                  className="text-gray-800 hover:text-red-500 max-sm:focus:text-red-500 focus:outline-none w-8 h-8"
+                  className="text-red-500 hover:text-gray-500 max-sm:focus:text-gray-500 focus:outline-none w-8 h-8"
                   onClick={handleCloseModal}
                 >
                   <IoMdClose className="w-full h-full" />
