@@ -49,7 +49,7 @@ const Certificates: React.FC = () => {
   return (
     <motion.section
       id="certificate"
-      className="flex flex-col justify-center items-center my-20 w-full max-sm:overflow-hidden"
+      className="flex flex-col justify-center items-center my-20 w-full"
     >
       {isModal && (
         <Modal certificateId={idCertificate} isModal={setIsModal} type={type} />

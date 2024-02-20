@@ -84,7 +84,7 @@ const Modal: React.FC<ModalProps> = ({
             transition={{ duration: 0.5 }}
             className="fixed inset-5 max-sm:inset-9 flex flex-col max-sm:mt-15 bg-white items-center justify-center mx-auto max-w-2xl z-50 rounded-2xl overflow-y-auto"
           >
-            <div className="relative h-[50%] w-full">
+            <div className="relative h-1/2 w-full">
               {type === "certificate" ? (
                 <Image
                   className="object-contain"
@@ -111,29 +111,33 @@ const Modal: React.FC<ModalProps> = ({
                 </button>
               </div>
             </div>
-            <div className="p-4 flex flex-col justify-between gap-1 w-full h-[50%]">
-              {type === "certificate" ? (
-                <>
-                  <h1 className="font-bold text-xl mb-2">
-                    {certificate?.title}
-                  </h1>
-                  <p className="opacity-40 font-semibold">Certificate</p>
-                  <p className="mb-4 text-sm">{certificate?.description}</p>
-                </>
-              ) : (
-                <>
-                  <h1 className="font-bold text-xl mb-2">{projects?.title}</h1>
-                  <p className="opacity-40 font-semibold">Project</p>
-                  <p className="mb-4 text-sm">{projects?.description}</p>
-                  <span className="flex gap-x-2">
-                    {projects?.techStack.map((stackId) => {
-                      return STACKS[stackId];
-                    })}
-                  </span>
-                </>
-              )}
-              {/* link */}
-              <div className="flex py-5 justify-between w-full items-center">
+            <div className="p-4 w-full h-1/2 flex flex-col justify-between">
+              <div className="flex flex-col gap-1">
+                {type === "certificate" ? (
+                  <>
+                    <h1 className="font-bold text-xl mb-2">
+                      {certificate?.title}
+                    </h1>
+                    <p className="opacity-40 font-semibold">Certificate</p>
+                    <p className="mb-4 text-sm">{certificate?.description}</p>
+                  </>
+                ) : (
+                  <>
+                    <h1 className="font-bold text-xl mb-2">
+                      {projects?.title}
+                    </h1>
+                    <p className="opacity-40 font-semibold">Project</p>
+                    <p className="mb-4 text-sm">{projects?.description}</p>
+                    <span className="flex gap-x-2">
+                      {projects?.techStack.map((stackId) => {
+                        return STACKS[stackId];
+                      })}
+                    </span>
+                  </>
+                )}
+                {/* link */}
+              </div>
+              <div className="flex mt-4 pb-4 justify-between w-full items-center">
                 {type === "certificate" && certificate?.urlCertificate && (
                   <div className="flex justify-end">
                     <Link

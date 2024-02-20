@@ -7,7 +7,7 @@ import { FaInstagram, FaGithub, FaWhatsapp, FaLinkedin } from "react-icons/fa";
 
 const Footer: React.FC = () => {
   return (
-    <div className="rounded-t-3xl bg-neutral-800 w-full text-white mt-16 max-sm:overflow-hidden">
+    <div className="rounded-t-3xl bg-neutral-800 w-full text-white mt-16">
       <div className="m-16 max-sm:m-8 flex flex-col justify-center items-center">
         <div className="flex justify-between w-full items-center m-4 gap-2">
           <div className="w-1/2">
@@ -80,7 +80,7 @@ const Footer: React.FC = () => {
                 <li>+62 83848762736</li>
                 <li>arthagusfi11@gmail.com</li>
                 <li>arthagp_</li>
-                <li>artha-portofolio.com</li>
+                <li>arthagp.com</li>
               </ul>
             </div>
             <div>

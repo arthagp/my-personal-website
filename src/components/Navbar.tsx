@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
           scrollY > 0 ? `shadow-box` : ``
         } flex justify-center items-center h-16 rounded-[30px] mx-auto bg-neutral-800 text-white max-w-[1150px]`}
       >
-        <ul className="flex justify-center lg:gap-x-14  font-extralight">
+        <ul className="flex nav justify-center lg:gap-x-14  font-extralight">
           <li>
             <Link
               to="home"

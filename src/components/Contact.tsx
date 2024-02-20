@@ -6,7 +6,7 @@ const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="flex flex-col justify-center items-center gap-16 my-20 max-sm:p-4 max-sm:overflow-hidden"
+      className="flex flex-col justify-center items-center gap-16 my-20 max-sm:p-4"
     >
       <div>
         <h1 className="text-5xl max-sm:text-3xl font-semibold text-center">

@@ -23,7 +23,7 @@ const Experience: React.FC = () => {
   return (
     <section
       id="experience"
-      className="relative flex flex-col justify-center items-center my-16 max-sm:overflow-hidden"
+      className="relative flex flex-col justify-center items-center my-16"
     >
       <div className="my-16">
         <h1 className="font-semibold text-4xl max-sm:text-3xl max-sm:w-[250px] max-sm:text-center">

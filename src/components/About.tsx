@@ -24,7 +24,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="bg-gray-700 w-full max-sm:h-[900px] max-sm:overflow-hidden"
+      className="bg-gray-700 w-full max-sm:h-[900px]"
     >
       <div className="m-16 flex max-sm:flex-col justify-around items-center">
         <div className="relative flex justify-center items-center w-[50%] translate-y-60">
