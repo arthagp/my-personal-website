@@ -45,27 +45,6 @@
   box-shadow: -13px 9px rgb(31 41 55);
 }
 
-.decorationLogo::before {
-  content: "";
-  position: absolute;
-  background-color: rgb(251 146 60);
-  width: 20px;
-  height: 20px;
-  border-radius: 20px;
-  z-index: -10;
-}
-.decorationLogo::after {
-  content: "";
-  position: absolute;
-  background-color: rgb(251 146 60);
-  width: 20px;
-  height: 20px;
-  border-radius: 20px;
-  z-index: -10;
-  bottom: 9px;
-  right: 9px;
-}
-
 .bg-project {
   background-image: url("../../public/bg-project.png");
   background-repeat: no-repeat;

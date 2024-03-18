@@ -4,6 +4,7 @@ import Image from "next/image";
 import btnContactMe from "../../public/arrow-right-up.svg";
 import sendIcon from "../../public/send-icon.svg";
 import { FaInstagram, FaGithub, FaWhatsapp, FaLinkedin } from "react-icons/fa";
+import myLogo from "../../public/logo.png";
 
 const Footer: React.FC = () => {
   return (
@@ -33,9 +34,7 @@ const Footer: React.FC = () => {
         <div className="w-full my-6 flex max-sm:flex-col max-sm:gap-y-4 justify-between items-center">
           <div className="max-sm:w-full flex flex-col gap-y-4">
             <div className="relative flex justify-start items-center h-12 w-[150px]">
-              <h1 className="z-10 decorationLogo text-white font-bold text-2xl">
-                ARTHA G.P
-              </h1>
+              <Image src={myLogo} alt="my-photo" />
             </div>
             <p className="opacity-70 text-sm font-medium w-[80%]">
               I specialize in front-end development, with a strong focus on

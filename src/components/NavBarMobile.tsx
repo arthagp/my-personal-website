@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
+import myLogo from "../../public/logo.png";
+import Image from "next/image";
 
 interface NavbarProps {
   handleClose: () => void;
@@ -15,10 +17,12 @@ const NavBarMobile = ({ handleClose }: NavbarProps) => {
       transition={{ duration: 0.8, type: "spring" }}
       className="fixed inset-0 bg-neutral-700 flex flex-col justify-center items-center w-full h-[100vh] z-40"
     >
-      <div className="relative flex justify-center items-center h-12 my-12">
-        <span className="absolute opacity-90 top-1 left-1 rounded-full w-6 h-6 bg-orange-400"></span>
-        <h1 className="z-10 text-white font-bold text-2xl">ARTHA G.P</h1>
-        <span className="absolute opacity-90 bottom-1 right-1 rounded-full w-6 h-6 bg-orange-400"></span>
+      <div className="relative flex justify-center items-center w-36 h-36 mt-12 mb-2">
+        <Image
+          src={myLogo}
+          alt="my-photo"
+          className="absolute object-contain inset-0 w-full h-full"
+        />
       </div>
       <ul className="flex flex-col gap-5 text-gray-200">
         <Link

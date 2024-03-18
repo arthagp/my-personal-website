@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
+import Image from "next/image";
+import myLogo from '../../public/logo.png'
 
 const Navbar: React.FC = () => {
   const [scrollY, setScrollY] = useState<number>(0);
@@ -75,9 +77,7 @@ const Navbar: React.FC = () => {
           </li>
         </ul>
         <div className="relative flex justify-center items-center h-12 mx-16">
-          <span className="absolute opacity-90 top-1 left-1 rounded-full w-6 h-6 bg-orange-400"></span>
-          <h1 className="z-10 text-white font-bold text-xl">ARTHA G.P</h1>
-          <span className="absolute opacity-90 bottom-1 right-1 rounded-full w-6 h-6 bg-orange-400"></span>
+          <Image src={myLogo} alt="my-photo"/>
         </div>
         <ul className="flex justify-center mx-auto items-center gap-x-10 font-extralight">
           <li>
