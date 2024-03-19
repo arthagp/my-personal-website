@@ -14,7 +14,7 @@ const NavBarMobile = ({ handleClose }: NavbarProps) => {
       initial={{ opacity: 0, x: 370 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ x: 370 }}
-      transition={{ duration: 0.8, type: "spring" }}
+      transition={{ duration: 0.9 }}
       className="fixed inset-0 bg-neutral-700 flex flex-col justify-center items-center w-full h-[100vh] z-40"
     >
       <div className="relative flex justify-center items-center w-36 h-36 mt-12 mb-2">

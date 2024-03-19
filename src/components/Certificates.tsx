@@ -67,7 +67,7 @@ const Certificates: React.FC = () => {
           See All
         </motion.button>
       </div>
-      <div className="flex justify-center items-center max-sm:flex-col m-12 gap-7 w-full">
+      <div className="flex justify-center items-center flex-wrap my-12 gap-7 w-full max-w-screen-xl mx-auto">
         {isLoading ? (
           <>
             <LoadCertificate />
@@ -78,12 +78,12 @@ const Certificates: React.FC = () => {
           currentCertificates.map((certificate) => (
             <motion.div
               key={certificate.id}
-              className="relative card bg-gradient-to-r from-black rounded-3xl w-[400px] h-[290px] max-sm:w-[320px] max-sm:h-[220px]"
+              className="relative card bg-gradient-to-r from-black rounded-3xl w-[350px] md:w-[400px] h-[250px] md:h-[290px]"
               whileHover={{ scale: 1.05 }}
             >
               {certificate?.imageUrl && certificate?.title && (
                 <Image
-                  className="rounded-3xl opacity-80 object-cover"
+                  className="rounded-3xl opacity-80 object-cover w-full h-full"
                   src={certificate.imageUrl}
                   alt={certificate.title}
                   fill={true}
@@ -95,13 +95,13 @@ const Certificates: React.FC = () => {
               )}
               <button
                 onClick={() => handleModal(certificate.id)}
-                className="absolute btnArrow text-orange-400 transition duration-300 hover:text-white right-4 top-4 hover:bg-orange-400 hover:border-none border-orange-300 border rounded-full w-9 h-9 flex justify-center items-center"
+                className="absolute btnArrow text-orange-400 transition duration-300 hover:text-white right-4 md:right-0 top-4 md:top-0 hover:bg-orange-400 hover:border-none border-orange-300 border rounded-full w-9 h-9 flex justify-center items-center"
               >
                 <FaArrowRight className="arrow-icon" />
               </button>
               <div className="bg-gradient-to-r rounded-3xl from-gray-800 absolute w-[80%] h-[80px] opacity-55 bottom-0"></div>
               <div className="absolute bottom-1 my-4 ml-2">
-                <h1 className="font-bold text-lg text-white">
+                <h1 className="font-bold text-lg text-white md:text-base">
                   {certificate.title}
                 </h1>
               </div>

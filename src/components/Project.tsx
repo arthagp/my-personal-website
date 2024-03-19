@@ -60,7 +60,7 @@ const Project: React.FC = () => {
         id="project"
         className="z-10 bg-project rounded-3xl flex flex-col justify-center bg-gray-800 mt-7 items-center w-full bg-project"
       >
-        <div className="flex max-sm:flex-col max-sm:p-4 justify-between w-[90%] my-16 gap-y-5">
+        <div className="flex max-sm:flex-col max-sm:p-4 justify-between w-[90%] mt-12 gap-y-5">
           <h1 className="text-4xl max-sm:text-3xl max-sm:flex-col font-semibold text-white justify-start">
             Lets have a look at <br /> my{" "}
             <span className="text-orange-400">Project</span>
@@ -72,7 +72,7 @@ const Project: React.FC = () => {
             creativity. Explore the possibilities!
           </p>
         </div>
-        <div className="flex max-sm:flex-col justify-center items-center gap-12 w-full">
+        <div className="flex justify-center items-center flex-wrap my-10 gap-7 w-full max-w-screen-xl mx-auto">
           {isLoading ? (
             <>
               <LoadProject />
@@ -87,7 +87,7 @@ const Project: React.FC = () => {
                 transition={{ duration: 0.2 }}
                 whileHover={{ scale: 1.05 }}
                 key={project.id}
-                className="border border-gray-500 card-bg  rounded-3xl w-[370px] h-[385px] max-sm:w-[320px] max-sm:h-[330px]"
+                className="card-bg border border-gray-500 rounded-3xl w-[320px] md:w-[400px] h-[330px] md:h-[385px]"
               >
                 <div className="border-b border-gray-500">
                   <h1 className="text-white font-semibold py-5 pl-2">
