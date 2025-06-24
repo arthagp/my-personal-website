@@ -103,7 +103,7 @@ const Footer: React.FC = () => {
         <div className="w-full h-[1px] bg-gray-400 mt-2"></div>
         {/* horizontal line */}
         <div className="w-full lg:-mb-12 lg:mt-10 max-sm:mt-2 opacity-90 flex max-sm:justify-center lg:justify-between items-center font-light">
-          <p>Copyright&copy; Artha Gusfi P . 2024</p>
+          <p>Copyright&copy; Artha Gusfi P . {new Date().getFullYear()}</p>
           <p className="max-sm:hidden">
             Reference Design by Figma : Jayesh Patil
           </p>
