@@ -5,11 +5,11 @@ import {
   SiFramer,
   SiHtml5,
   SiJavascript,
-  SiJest,
+  // SiJest,
   SiNextdotjs,
-  SiNodedotjs,
+  // SiNodedotjs,
   SiPhp,
-  SiPrisma,
+  // SiPrisma,
   SiReact,
   SiReactrouter,
   SiRedux,
@@ -31,7 +31,7 @@ export const STACKS: JSX.Element[] = [
   <SiExpress size={size} />, //2. Express
   <BiLogoPostgresql size={size} />, //3. PostgreSQL
   <SiTailwindcss size={size} />, //4. Tailwindcss
-  <SiJavascript size={size} />, //5. Axios
+  <SiJavascript size={size} />, //5. Javascript
   <SiDocker size={size} />, //6. Docker
   <SiVuedotjs size={size} />, //7. Vuejs
   <SiCypress size={size} />, //8. Cypress

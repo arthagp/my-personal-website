@@ -2,35 +2,25 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Modal from "./Modal";
-import { Certificate } from "../types/certificate";
-import Pagination from "./Pagination";
+import Modal from "../Modal";
+import Pagination from "../Pagination";
 import { FaArrowRight } from "react-icons/fa6";
-import LoadCertificate from "./LoadCertificate";
+import LoadCertificate from "../LoadCertificate";
+import { dataCertificates } from "@/utils/section/certificate"; 
 
 const Certificates: React.FC = () => {
   const type: string = "certificate";
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isModal, setIsModal] = useState<boolean>(false);
-  const [certificates, setCertificates] = useState<Certificate[]>([]);
   const [idCertificate, setIdCertificate] = useState<number>();
   const [currentPage, setCurrentPage] = useState<number>(1);
   const certificatesPerPage = 3;
 
-  const fetchAllCertificates = async () => {
-    try {
-      const response = await fetch("/api/certificate");
-      const { data } = await response.json();
-      setCertificates(data);
-      setIsLoading(false);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
-    fetchAllCertificates();
-  }, []);
+    if(dataCertificates.length > 0) {
+      setIsLoading(false);
+    }
+  }, [dataCertificates]);
 
   const handleModal = (id: number) => {
     setIdCertificate(id);
@@ -39,7 +29,7 @@ const Certificates: React.FC = () => {
 
   const indexOfLastCertificate = currentPage * certificatesPerPage;
   const indexOfFirstCertificate = indexOfLastCertificate - certificatesPerPage;
-  const currentCertificates = certificates.slice(
+  const currentCertificates = dataCertificates.slice(
     indexOfFirstCertificate,
     indexOfLastCertificate
   );
@@ -112,7 +102,7 @@ const Certificates: React.FC = () => {
       {/* Pagination */}
       <Pagination
         currentPage={currentPage}
-        totalPages={Math.ceil(certificates.length / certificatesPerPage)}
+        totalPages={Math.ceil(dataCertificates.length / certificatesPerPage)}
         onPageChange={paginate}
       />
     </motion.section>

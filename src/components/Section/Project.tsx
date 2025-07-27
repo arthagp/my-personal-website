@@ -2,49 +2,38 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa";
-import Modal from "./Modal";
+import Modal from "../Modal";
 import { Portofolio } from "@/types/project";
-import Pagination from "./Pagination";
-import LoadProject from "./LoadProject";
+import Pagination from "../Pagination";
+import LoadProject from "../LoadProject";
 import LoadingBar from "react-top-loading-bar";
 import { motion } from "framer-motion";
+import { dataProjects } from "@/utils/section/projects";
 
 const Project: React.FC = () => {
   const type: string = "project";
   const [progress, setProgress] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isModal, setIsModal] = useState<boolean>(false);
-  const [projects, setProjects] = useState<Portofolio[]>([]);
   const [idProject, setIdProject] = useState<number>();
   const [currentPage, setCurrentPage] = useState<number>(1);
   const projectsPerPage = 3;
-
-  const fetchAllProjects = async () => {
-    try {
-      setProgress(35);
-      const response = await fetch("/api/project");
-      const { data } = await response.json();
-      setProjects(data);
-      setIsLoading(false);
-      setProgress(100);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchAllProjects();
-  }, []);
 
   const handleModal = (id: number) => {
     setIsModal(true);
     setIdProject(id);
   };
 
+  useEffect(() => {
+    if(dataProjects.length > 0) {
+      setIsLoading(false);
+    }
+  }, [dataProjects]);
+
   const indexOfLastCertificate = currentPage * projectsPerPage;
   const indexOfFirstCertificate = indexOfLastCertificate - projectsPerPage;
-  const currentProjects = projects.slice(
-    indexOfFirstCertificate,
+  const currentProjects = dataProjects.slice(
+    indexOfFirstCertificate,  
     indexOfLastCertificate
   );
 
@@ -127,7 +116,7 @@ const Project: React.FC = () => {
         <div className="my-10">
           <Pagination
             currentPage={currentPage}
-            totalPages={Math.ceil(projects.length / projectsPerPage)}
+            totalPages={Math.ceil(dataProjects.length / projectsPerPage)}
             onPageChange={paginate}
           />
         </div>

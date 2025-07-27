@@ -1,25 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { Experiences } from "../types/experience";
+import React from "react";
+import { Experiences } from "@/types/experience";
 import { convertDate, countMonths } from "@/helpers";
+import { dataExperiences } from "@/utils/section/experience";
 
 const Experience: React.FC = () => {
-  const [experiences, setExperiences] = useState<Experiences[]>([]);
-
-  const fetchExperience = async () => {
-    try {
-      const response = await fetch(`/api/experience`);
-      const { data } = await response.json();
-      setExperiences(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchExperience();
-  }, []);
-
   return (
     <section
       id="experience"
@@ -31,13 +16,13 @@ const Experience: React.FC = () => {
         </h1>
       </div>
       <div className="flex flex-col justify-center items-center gap-12 w-full px-20">
-        {experiences.map((experience, index) => (
+        {dataExperiences.map((experience, index) => (
           <div
-            key={index}
-            className="relative flex flex-col justify-center items-center h-52 max-sm:h-32"
+            key={experience.id}
+            className="relative flex flex-col justify-center items-center h-52 max-sm:h-32 w-full"
           >
-            <div className="flex justify-between items-center max-sm:justify-center max-sm:text-center max-sm:text-sm">
-              <div className="max-w-[30%] max-sm:max-w-[300px]">
+            <div className="flex justify-between items-center max-sm:justify-center max-sm:text-center max-sm:text-sm w-full">
+              <div className="w-[30%] max-sm:w-[100%] max-w-[30%] max-sm:max-w-[300px]">
                 <h1 className="text-xl max-sm:text-lg font font-semibold">
                   at {experience.companyName}, {experience.place || "Indonesia"}
                 </h1>
@@ -52,9 +37,8 @@ const Experience: React.FC = () => {
                 </p>
               </div>
               <div
-                className={`${
-                  index % 2 === 0 ? "bg-orange-400" : "bg-black"
-                } outline-[2px] outline-dashed border-2 rounded-full w-8 h-8 max-sm:hidden`}
+                className={`${index % 2 === 0 ? "bg-orange-400" : "bg-black"
+                  } outline-[2px] outline-dashed border-2 rounded-full w-8 h-8 max-sm:hidden`}
               ></div>
               <div className="max-w-[30%] max-sm:hidden">
                 <h1 className="text-xl font font-semibold">
